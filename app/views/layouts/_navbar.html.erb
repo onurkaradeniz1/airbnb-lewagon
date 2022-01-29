@@ -1,0 +1,19 @@
+ <nav class="navbar navbar-light justify-content-between">
+  <%= link_to "Airbnb LeWagon", id:"homepage" %>
+  <div class="ms-auto">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false" id="login_menu">
+        &#x1F464;
+          </a>
+        <div class="dropdown-menu" aria-labelledby="login_menu">
+        <!-- add condition if user is logged in or not -->
+          <%= link_to "Register" %>
+          <%= link_to "Log in" %>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>
