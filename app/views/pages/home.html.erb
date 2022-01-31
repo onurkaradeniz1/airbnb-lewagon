@@ -1,2 +1,19 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Ready to plan your new trip?</h1>
+<div class="container">
+  <div class="row">
+
+    <div class="col-6">
+    <%= image_tag "lighthouse.JPG", id:"banner_image" %>
+    </div>
+
+
+
+    <div class="calendar col-6">
+      <span>Select dates</span>
+      <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+          <i class="fa fa-calendar"></i>&nbsp;
+          <span></span> <i class="fa fa-caret-down"></i>
+      </div>
+    </div>
+  </div>
+</div>
