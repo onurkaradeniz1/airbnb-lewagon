@@ -1,0 +1,38 @@
+hr {
+  border: none;
+  border-top: 4px double $sand;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+  color: $sand;
+  width: 80%;
+}
+
+hr:after {
+  background: $light-gray;
+  content: '§';
+  padding: 0 4px;
+  position: relative;
+  top: -13px;
+}
+
+#footer_links {
+  justify-content: space-between;
+  padding: 0;
+  display: flex;
+  width: 12%;
+  margin:0 auto;
+  margin-top: 12px;
+  color: $gray;
+  font-size: 32px;
+}
+
+i {
+  text-decoration: none;
+  color: $middle-gray;
+}
+
+i:hover {
+  text-decoration: none;
+  color: $gray;
+}

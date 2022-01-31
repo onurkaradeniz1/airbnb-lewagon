@@ -59,7 +59,7 @@ input[type=search] {
   }
 
   a.cancel {
-    color: white;
+    color: $light-gray;
   }
 }
 
@@ -69,11 +69,11 @@ input[type=search] {
   padding: 5px 0 0 5px;
   a {
   text-decoration: none;
-  color: #5b646c;
+  color: $middle-gray;
   }
   a:hover {
     text-decoration: none;
-    color: #9ba9b6;
+    color: $bright-gray;
   }
 }
 
@@ -93,4 +93,23 @@ li {
   a:hover {
     text-decoration: none;
   }
+}
+
+#home_button_1 {
+  font-family: serif;
+  font-size: 28px;
+  color: $gray;
+}
+
+#home_button_1:hover {
+  color: $middle-gray;
+}
+
+#home_button_2 {
+  font-family: Seaweed Script;
+  color: $sand;
+}
+
+#home_button_2:hover {
+  color: $sand-hover;
 }
