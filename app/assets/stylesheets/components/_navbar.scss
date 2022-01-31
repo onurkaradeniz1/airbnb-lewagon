@@ -23,6 +23,7 @@
 
 input[type=search] {
   width: 120px;
+  border-radius: 5px;
 }
 
 .form-control {
@@ -41,6 +42,7 @@ input[type=search] {
   .btn {
     border-color: #c6c6c6;
     margin-left: 5px;
+    border-radius: 5px;
   }
 }
 
@@ -58,5 +60,37 @@ input[type=search] {
 
   a.cancel {
     color: white;
+  }
+}
+
+.link_list {
+  text-align: left;
+  margin: 0;
+  padding: 5px 0 0 5px;
+  a {
+  text-decoration: none;
+  color: #5b646c;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #9ba9b6;
+  }
+}
+
+.dropdown-menu {
+  border-radius: 5px;
+}
+
+li {
+  list-style-type: none;
+}
+
+#homepage_link {
+  display: inline-block;
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
   }
 }
