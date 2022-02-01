@@ -37,7 +37,9 @@ document.addEventListener('turbolinks:load', () => {
     //$('#reportrange span').html(start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY'));
   }
 
-  $('#reportrange').daterangepicker({
+  let $input = $('#reportrange');
+
+  $input.daterangepicker({
     startDate: start,
     endDate: end,
     alwaysShowCalendars: true
@@ -45,4 +47,5 @@ document.addEventListener('turbolinks:load', () => {
 
   cb(start, end);
 
+  $input.click();
 });

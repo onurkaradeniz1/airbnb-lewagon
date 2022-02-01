@@ -1,9 +1,5 @@
 // Specific CSS for your home-page
-.container {
-
-}
-
-h1 {
+h1, h3 {
   margin: 32px 0 24px 0;
   text-align: center;
   color: $sand;
@@ -23,4 +19,47 @@ h1 {
 
 #reportrange {
   margin-top: 12px;
+}
+
+#apartment_image {
+  width: 100%;
+}
+
+.container {
+  hr {
+  margin: 12px auto;
+  border: none;
+  border-top: 1px solid $sand;
+  color: $sand;
+  width: 100%;
+  }
+}
+
+.row {
+  p {
+    font-size: 12px;
+    color: $gray;
+  }
+}
+
+.top_rated_preview {
+  margin-top: 18px;
+  vertical-align: middle;
+}
+
+.review_text {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 564px) and (max-width: 950px) {
+  .daterangepicker {
+    width: 278px !important;
+  }
+}
+
+@media (min-width: 950px) {
+  .daterangepicker {
+    width: auto;
+  }
 }

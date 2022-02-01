@@ -1,13 +1,10 @@
-<h1>Ready to plan your new trip?</h1>
+<h1>Ready to plan your next trip?</h1>
 <div class="container">
-  <div class="row">
 
+  <div class="row">
     <div class="col-6">
     <%= image_tag "lighthouse.JPG", id:"banner_image" %>
     </div>
-
-
-
     <div class="calendar col-6">
       <span>Select dates</span>
       <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
@@ -15,5 +12,53 @@
           <span></span> <i class="fa fa-caret-down"></i>
       </div>
     </div>
+  </div>
+  <hr>
+  <h3>Check out our top rated locations!</h3>
+  <div class="row top_rated_preview">
+    <div class="col-4">
+      <%= image_tag "1.jpg", id:"apartment_image" %>
+    </div>
+    <div class="col-8 review_text">
+      <p>Very tidy and lovely airbnb apartment equipped with everything you need. A good bed and nice bathroom. Great host who wants to share all of the knowledge about the area.We had a great stay!</p>
+    </div>
+  </div>
+
+  <div class="row top_rated_preview">
+    <div class="col-4">
+      <%= image_tag "2.jpg", id:"apartment_image" %>
+    </div>
+    <div class="col-8 review_text">
+      <p>The place is at a perfect location, very easy to get around with public transportation and walking distance to awesome bars and restaurants</p>
+    </div>
+  </div>
+
+  <div class="row top_rated_preview">
+    <div class="col-4">
+      <%= image_tag "3.jpg", id:"apartment_image" %>
+    </div>
+    <div class="col-8 review_text">
+      <p>I found this place to be very clean, comfortable, and perfectly sized for one to two people. The bathroom and shower was excellent.</p>
+    </div>
+  </div>
+
+  <div class="row top_rated_preview">
+    <div class="col-4">
+      <%= image_tag "4.jpg", id:"apartment_image" %>
+    </div>
+    <div class="col-8 review_text">
+      <p>Thanks for a wonderful weekend! We will be back</p>
+    </div>
+  </div>
+
+  <div class="row top_rated_preview">
+    <div class="col-4">
+      <%= image_tag "5.jpg", id:"apartment_image" %>
+    </div>
+    <div class="col-8 review_text">
+      <p>Couldn't have been better. Apartment was beautiful and equipped with everything I needed.</p>
+    </div>
+  </div>
+
   </div>
 </div>
