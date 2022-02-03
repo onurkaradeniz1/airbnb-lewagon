@@ -1,0 +1,24 @@
+ <nav class="navbar navbar-light justify-content-between">
+ <!-- add propper link -->
+  <div id="homepage_link">
+    <%= link_to "airbnb ", "#", id:"home_button_1" %><%= link_to " LeWagon", "#", id:"home_button_2" %>
+  </div>
+  <div class="ms-auto">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" name="query" placeholder="Where are you going?" aria-label="Search">
+      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false" id="login_menu">
+        &#x1F464;
+          </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="login_menu">
+        <!-- add condition if user is logged in or not -->
+          <ul class="link_list">
+            <li><%= link_to "Register" %></li>
+            <li><%= link_to "Log in" %></li>
+          </ul>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>

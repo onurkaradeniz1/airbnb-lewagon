@@ -5,9 +5,20 @@
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
+@import "bootstrap-daterangepicker/daterangepicker.css";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+a {
+  text-decoration: none;
+  color: $middle-gray;
+}
+
+a:hover {
+  text-decoration: none;
+  color: $gray;
+}
