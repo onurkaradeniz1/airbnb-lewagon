@@ -1,1 +1,5 @@
 <h1>Hello flat!</h1>
+
+<% if @flat.pictures? %>
+<image src" <%= (url_for(@flat.pictures)) %> ">
+<% end %>
