@@ -1,46 +1,17 @@
 <h1>Rental details</h1>
-
-<%= simple_form_for [ @flat ] do |f| %>
-  <%= f.input :price_per_day %>
-  <%= f.input :address %>
-  <%= f.input :availability %>
-  <%= f.input :capacity %>
-  <%= f.submit "Add flat", class: "btn btn-primary" %>
-<% end %>
-
 <div class="container">
   <div class="rental_form">
-    <h3>Rental type</h3>
-    <div class="form-group">
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>Flat apartment</option>
-        <option>Room</option>
-        <option>Bungalow/holiday home</option>
-        <option>House</option>
-        <option>Other type</option>
-      </select>
-    </div>
+    <%= simple_form_for [ @flat ] do |f| %>
+      <%= f.input :price_per_day %>
+      <%= f.input :address %>
+      <%= f.input :availability %>
+      <%= f.input :capacity %>
+      <%= f.submit "Add flat", class: "btn btn-primary" %>
+    <% end %>
 
-    <h3>Enter the address</h3>
-
-    <h3>How many guests could you welcome</h3>
-
-    <h3>What kind of spaces are you offering to yur guests?</h3>
-    <div class="form-group">
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>bedroom</option>
-        <option>living room</option>
-        <option>kitchen</option>
-        <option>bathroom</option>
-        <option>terrace</option>
-        <option>garage/parking spot</option>
-      </select>
-    </div>
-
-    <h3>Upload some pictures of your place</h3>
     <form>
       <div class="form-group">
-        <label for="exampleFormControlFile1">Example file input</label>
+        <label for="exampleFormControlFile1">Upload some pictures of your place</label>
         <input type="file" class="form-control-file" id="exampleFormControlFile1">
       </div>
     </form>
