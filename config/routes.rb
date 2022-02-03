@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/users/sign_out' => 'devise/sessions#destroy'
   resources :flats do
-    resources :bookings, only: [ :new, :create ]
+    resources :bookings, only: %i[new create]
   end
-  resources :bookings, except: [ :new, :index, :create ]
+  resources :bookings, except: %i[new index create]
 end
