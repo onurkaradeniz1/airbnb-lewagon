@@ -32,12 +32,15 @@ class BookingsController < ApplicationController
   def update
     new_id = @booking.flat_id
     @flat = Flat.find(new_id)
-    @booking.total_price = ((@booking.last_day_of_booking - @booking.first_day_of_booking).to_i) * @flat.price_per_day
-    raise
     @booking.update(booking_params)
-    redirect_to booking_path(@booking)
+    @booking.total_price = ((@booking.last_day_of_booking - @booking.first_day_of_booking).to_i) * @flat.price_per_day
+    @booking.save
 
-    # params[:booking]["first_day_of_booking(1i)"]
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render :edit
+    end
   end
 
   def destroy
