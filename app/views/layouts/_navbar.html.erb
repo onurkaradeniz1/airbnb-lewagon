@@ -12,10 +12,14 @@
         &#x1F464;
           </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="login_menu">
-        <!-- add condition if user is logged in or not -->
           <ul class="link_list">
-            <li><%= link_to "Register" %></li>
-            <li><%= link_to "Log in" %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Become a host", new_flat_path %></li>
+              <li><%= link_to "Log out", destroy_user_session_path %></li>
+            <% else %>
+              <li><%= link_to "Register", new_user_registration_path %></li>
+              <li><%= link_to "Log in", new_user_session_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>
