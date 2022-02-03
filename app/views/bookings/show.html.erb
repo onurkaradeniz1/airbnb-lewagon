@@ -1,0 +1,12 @@
+<h1>Bookings#show</h1>
+<p>Find me in app/views/bookings/show.html.erb</p>
+
+
+<h2><%= @booking.total_price %></h2>
+
+
+
+<%= link_to "Delete this booking",
+            booking_path(@booking),
+            method: :delete,
+            data: { confirm: "Are you sure?" }, class: "btn btn-warning" %>
