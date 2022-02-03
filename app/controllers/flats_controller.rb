@@ -1,6 +1,6 @@
 class FlatsController < ApplicationController
   before_action :find_user
-  before_action :find_flat
+  before_action :find_flat, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @flats = Flat.all
@@ -48,6 +48,6 @@ class FlatsController < ApplicationController
   end
 
   def find_user
-    @user = current_user.id
+    @user = current_user
   end
 end
