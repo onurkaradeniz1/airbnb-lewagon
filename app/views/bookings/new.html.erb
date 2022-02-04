@@ -5,6 +5,5 @@
 <%= simple_form_for [ @flat, @booking ] do |f| %>
   <%= f.input :first_day_of_booking %>
   <%= f.input :last_day_of_booking %>
-  <%= f.association :availability %>
   <%= f.submit "Submit review", class: "btn btn-primary" %>
 <% end %>
