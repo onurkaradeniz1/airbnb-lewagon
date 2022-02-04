@@ -1,2 +1,23 @@
 <h1>Flats#index</h1>
 <p>Find me in app/views/flats/index.html.erb</p>
+
+
+
+
+<% @flats.each do |flat| %>
+<h5><%= flat.address %></h5>
+
+
+<%= link_to 'show', flat %>
+
+  <% if policy(flat).edit? %>
+    <%= link_to 'edit', edit_flat_path(flat) %>
+  <% end %>
+  <% if policy(flat).destroy? %>
+    <%= link_to 'delete', flat, method: :delete, data: {confirm: "sure?"} %>
+  <% end %>
+<% end %>
+
+<% if policy(Flat).create? %>
+  <%= link_to "New flat", new_flat_path %>
+<% end %>

@@ -4,8 +4,8 @@ class BookingsController < ApplicationController
   before_action :find_flat, only: [ :new, :create ]
 
   def new
-
     @booking = Booking.new
+    authorize @booking
   end
 
   def show
@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.user_id = @user.id
     @booking.flat_id = @flat.id
     @booking.total_price = ((@booking.last_day_of_booking - @booking.first_day_of_booking).to_i) * @flat.price_per_day
-
+    authorize @booking
     @booking.save
     if @booking.save
       redirect_to booking_path(@booking)
