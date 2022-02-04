@@ -1,6 +1,6 @@
 class FlatsController < ApplicationController
   before_action :find_user
-  before_action :find_flat, only: [ :show, :edit, :update, :destroy ]
+  before_action :find_flat, only: %i[show edit update destroy]
 
   def index
     # @flats = Flat.all
@@ -25,6 +25,7 @@ class FlatsController < ApplicationController
   end
 
   def show
+    @flat = Flat.find(params[:id])
   end
 
   def edit

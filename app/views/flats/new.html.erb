@@ -1,11 +1,13 @@
-<h1>Flats#new</h1>
-<p>Find me in app/views/flats/new.html.erb</p>
-
-
-<%= simple_form_for [ @flat ] do |f| %>
-  <%= f.input :price_per_day %>
-  <%= f.input :address %>
-  <%= f.input :availability %>
-  <%= f.input :capacity %>
-  <%= f.submit "Submit flat", class: "btn btn-primary" %>
-<% end %>
+<h1>Rental details</h1>
+<div class="container">
+  <div class="rental_form">
+    <%= simple_form_for [ @flat ] do |f| %>
+      <%= f.input :price_per_day %>
+      <%= f.input :address %>
+      <%= f.input :availability %>
+      <%= f.input :capacity %>
+      <%= f.input :pictures, as: :file %>
+      <%= f.submit "Add flat", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -10,3 +10,106 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.navbar-form {
+  display: inline-block;
+}
+
+input[type=search] {
+  width: 120px;
+  border-radius: 5px;
+}
+
+.form-control {
+  display: inline-block;
+}
+
+.navbar {
+  #logo {
+  color: black;
+  font-size: large;
+  text-decoration: none;
+  }
+}
+
+.navbar {
+  .btn {
+    border-color: #c6c6c6;
+    margin-left: 5px;
+    border-radius: 5px;
+  }
+}
+
+.btn {
+  a:link, a:visited, a:hover {
+    color: $middle-gray;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+  }
+
+  a.cancel {
+    color: $light-gray;
+  }
+}
+
+.link_list {
+  text-align: left;
+  margin: 0;
+  padding: 5px 0 0 5px;
+  a {
+  text-decoration: none;
+  color: $middle-gray;
+  }
+  a:hover {
+    text-decoration: none;
+    color: $bright-gray;
+  }
+}
+
+.dropdown-menu {
+  border-radius: 5px;
+}
+
+li {
+  list-style-type: none;
+}
+
+#homepage_link {
+  display: inline-block;
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+#home_button_1 {
+  font-family: serif;
+  font-size: 28px;
+  color: $gray;
+}
+
+#home_button_1:hover {
+  color: $middle-gray;
+}
+
+#home_button_2 {
+  font-family: Seaweed Script;
+  color: $sand;
+}
+
+#home_button_2:hover {
+  color: $sand-hover;
+}
