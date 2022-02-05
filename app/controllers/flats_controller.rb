@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  before_action :find_user
+  before_action :find_user, :database_search
   before_action :find_flat, only: %i[show edit update destroy]
 
   def index
@@ -59,4 +59,9 @@ class FlatsController < ApplicationController
   def find_user
     @user = current_user
   end
+
+  def database_search
+    @markers = Flat.all
+  end
+
 end
