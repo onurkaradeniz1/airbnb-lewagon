@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     resources :reviews, only: [ :new, :create ]
   end
   resources :reviews, except: [ :new, :create ]
+  get '/bookings', to: 'bookings#index'
 end
