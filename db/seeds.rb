@@ -14,12 +14,11 @@ puts "seeding the database"
   flat = Flat.new(
     price_per_day: rand(50..300),
     address: Faker::Address.city,
-    pictures: "hello",
-    description: Faker::Lorem.sentence,
+    start_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
+    end_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
     capacity: rand(2..6),
-    availability:
+    user_id: 1
   )
-  flat.user.id = 1
   flat.save
   puts "created flat"
 end
