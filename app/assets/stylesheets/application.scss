@@ -13,6 +13,10 @@
 @import "components/index";
 @import "pages/index";
 
+body {
+  color: $middle-gray;
+}
+
 a {
   text-decoration: none;
   color: $middle-gray;

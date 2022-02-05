@@ -1,0 +1,25 @@
+<h1>My flats</h1>
+
+<div class="my_flats_page">
+  <div class="my_flats_container">
+
+    <% unless current_user.flats.nil? %>
+      <% @flats.each do |flat| %>
+        <div class="flat_row">
+          <div>
+            <% if flat.photo.key.present? %>
+              <%= cl_image_tag(flat.photo.key, class:"my_flat_image") %>
+            <% else %>
+               <%= image_tag("unknown.jpg", class:"my_flat_image") %>
+            <% end %>
+            <p><%= flat.address %></p>
+          </div>
+          <div class="remove_flat_button">
+            <%= link_to "Remove the flat", flat_path(flat), method:"delete" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
