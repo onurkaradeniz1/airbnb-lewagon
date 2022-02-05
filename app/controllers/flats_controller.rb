@@ -1,18 +1,21 @@
 class FlatsController < ApplicationController
   before_action :find_user
-  before_action :find_flat, only: [ :show, :edit, :update, :destroy ]
+  before_action :find_flat, only: %i[show edit update destroy]
 
   def index
-    @flats = Flat.all
+    # @flats = Flat.all
+    @flats = policy_scope(Flat)
   end
 
   def new
     @flat = Flat.new
+    authorize @flat
   end
 
   def create
     @flat = Flat.new(flat_params)
     @flat.user_id = @user.id
+    authorize @flat
     @flat.save
     if @flat.save
       redirect_to flat_path(@flat)
@@ -46,6 +49,7 @@ class FlatsController < ApplicationController
 
   def find_flat
     @flat = Flat.find(params[:id])
+    authorize @flat
   end
 
   def find_user

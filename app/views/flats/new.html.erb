@@ -6,14 +6,8 @@
       <%= f.input :address %>
       <%= f.input :availability %>
       <%= f.input :capacity %>
+      <%= f.input :pictures, as: :file %>
       <%= f.submit "Add flat", class: "btn btn-primary" %>
     <% end %>
-
-    <form>
-      <div class="form-group">
-        <label for="exampleFormControlFile1">Upload some pictures of your place</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
-      </div>
-    </form>
   </div>
 </div>
