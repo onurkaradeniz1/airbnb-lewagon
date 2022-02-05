@@ -30,6 +30,10 @@ class FlatPolicy < ApplicationPolicy
     user_is_owner_or_admin?
   end
 
+  def my_flats?
+    true
+  end
+
   private
 
   def user_is_owner_or_admin?

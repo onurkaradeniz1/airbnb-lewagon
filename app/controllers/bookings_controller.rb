@@ -3,6 +3,10 @@ class BookingsController < ApplicationController
   before_action :find_booking, only: [ :show, :edit, :update, :destroy ]
   before_action :find_flat, only: [ :new, :create ]
 
+  def index
+    @bookings = Booking.where(user_id: @user.id)
+  end
+
   def new
     @booking = Booking.new
     authorize @booking

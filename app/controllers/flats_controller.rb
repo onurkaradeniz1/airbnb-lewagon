@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  before_action :find_user
+  before_action :find_user, :database_search
   before_action :find_flat, only: %i[show edit update destroy]
 
   def index
@@ -25,7 +25,6 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user_id = @user.id
     authorize @flat
-    @flat.save
     if @flat.save
       redirect_to flat_path(@flat)
     else
@@ -47,13 +46,18 @@ class FlatsController < ApplicationController
 
   def destroy
     @flat.destroy
-    redirect_to flats_path
+    redirect_to my_flats_path
+  end
+
+  def my_flats
+    @flats = current_user.flats
+    authorize @flats
   end
 
   private
 
   def flat_params
-    params.require(:flat).permit(:price_per_day, :address, :pictures, :availability, :description, :capacity)
+    params.require(:flat).permit(:price_per_day, :city, :country, :address, :photo, :start_date, :end_date, :description, :capacity)
   end
 
   def find_flat
@@ -64,4 +68,9 @@ class FlatsController < ApplicationController
   def find_user
     @user = current_user
   end
+
+  def database_search
+    @markers = Flat.all
+  end
+
 end
