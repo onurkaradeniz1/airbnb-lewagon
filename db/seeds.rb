@@ -8,6 +8,7 @@
 
 puts "seeding the database"
 
+user1 = User.create()
 
 
 100.times do
@@ -17,8 +18,8 @@ puts "seeding the database"
     start_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
     end_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
     capacity: rand(2..6),
-    user_id: 1
   )
+  flat.user =
   flat.save
   puts "created flat"
 end
