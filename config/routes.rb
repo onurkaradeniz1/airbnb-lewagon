@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   resources :flats do
     resources :bookings, only: [ :new, :create ]
   end
-  resources :bookings, except: [ :new, :index, :create ]
+  resources :bookings, except: [ :new, :index, :create ] do
+    resources :reviews, only: [ :new, :create ]
+  end
+  resources :reviews, except: [ :new, :create ]
 end
