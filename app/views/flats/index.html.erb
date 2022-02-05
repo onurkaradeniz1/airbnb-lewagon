@@ -1,15 +1,14 @@
 <h1>Flats#index</h1>
-<p>Find me in app/views/flats/index.html.erb</p>
-
-
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
 
 <% @flats.each do |flat| %>
-<h5><%= flat.address %></h5>
-
-
-<%= link_to 'show', flat %>
-
+  <h5><%= flat.address %></h5>
+  <%= link_to 'show', flat %>
   <% if policy(flat).edit? %>
     <%= link_to 'edit', edit_flat_path(flat) %>
   <% end %>
@@ -17,7 +16,6 @@
     <%= link_to 'delete', flat, method: :delete, data: {confirm: "sure?"} %>
   <% end %>
 <% end %>
-
 <% if policy(Flat).create? %>
   <%= link_to "New flat", new_flat_path %>
 <% end %>

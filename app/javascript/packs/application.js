@@ -20,11 +20,19 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
+import { initMapbox } from '../plugins/init_mapbox';
 import "bootstrap-daterangepicker";
 const moment = require('moment')
 
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+
+import { autocomplete } from "../components/search";
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -48,4 +56,11 @@ document.addEventListener('turbolinks:load', () => {
   cb(start, end);
 
   $input.click();
+
 });
+
+const addressInput = document.getElementById('search-input');
+
+addressInput.addEventListener('keyup', () => {
+  autocomplete();
+})

@@ -1,10 +1,19 @@
 class FlatsController < ApplicationController
-  before_action :find_user
+  before_action :find_user, :database_search
   before_action :find_flat, only: %i[show edit update destroy]
 
   def index
     # @flats = Flat.all
     @flats = policy_scope(Flat)
+
+      @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { flat: flat }),
+        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      }
+    end
   end
 
   def new
@@ -59,4 +68,9 @@ class FlatsController < ApplicationController
   def find_user
     @user = current_user
   end
+
+  def database_search
+    @markers = Flat.all
+  end
+
 end
