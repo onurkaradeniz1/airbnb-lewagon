@@ -1,19 +1,25 @@
 class ReviewsController < ApplicationController
   before_action :find_user
-  before_action :find_booking, only: [ :index, :new, :create ]
+  before_action :find_booking, only: [ :new, :create ]
   before_action :find_review, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @reviews = Review.where(@booking.user_id == @user.id)
+    reviews_all = policy_scope(Review)
+    @reviews = reviews_all.select do |review|
+      booking = Booking.find(review.booking_id)
+      booking.user_id == @user.id
+    end
   end
 
   def new
     @review = Review.new
+    authorize @review
   end
 
   def create
     @review = Review.new(review_params)
     @review.booking_id = @booking.id
+    authorize @review
     @review.save
     if @review.save
       redirect_to review_path(@review)
