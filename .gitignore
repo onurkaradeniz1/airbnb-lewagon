@@ -44,3 +44,4 @@ yarn-debug.log*
 
 # Ignore vendor files
 vendor/*
+.env*

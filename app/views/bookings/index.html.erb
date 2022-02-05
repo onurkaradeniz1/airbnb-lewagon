@@ -1,2 +1,6 @@
 <h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<p>This shows all the bookings for the current user</p>
+<% @bookings.each do |booking| %>
+  <%= booking.id %>
+  <%= booking.total_price %>
+<% end %>

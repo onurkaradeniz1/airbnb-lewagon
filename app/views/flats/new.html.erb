@@ -2,11 +2,15 @@
 <div class="container">
   <div class="rental_form">
     <%= simple_form_for [ @flat ] do |f| %>
+      <%= f.input :description %>
       <%= f.input :price_per_day %>
+      <%= f.input :country, :as => :string %>
+      <%= f.input :city %>
       <%= f.input :address %>
-      <%= f.input :availability %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
       <%= f.input :capacity %>
-      <%= f.input :pictures, as: :file %>
+      <%= f.input :photo, as: :file %>
       <%= f.submit "Add flat", class: "btn btn-primary" %>
     <% end %>
   </div>
