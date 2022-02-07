@@ -8,8 +8,6 @@
 
 puts "seeding the database"
 
-
-
 100.times do
   flat = Flat.new(
     price_per_day: rand(50..300),
