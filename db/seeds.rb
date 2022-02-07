@@ -19,6 +19,7 @@ puts "seeding the database"
     capacity: rand(2..6),
     availability:
   )
+
   flat.user.id = 1
   flat.save
   puts "created flat"
