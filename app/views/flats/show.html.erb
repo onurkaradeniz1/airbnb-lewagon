@@ -21,10 +21,10 @@
   <hr>
   <div class="flat-options">
   <% if policy(@flat).edit? %>
-    <%= link_to 'Edit', edit_flat_path(@flat) %>
+    <%= link_to 'Edit', edit_flat_path(@flat), class:"btn btn-primary" %>
   <% end %>
   <% if policy(@flat).destroy? %>
-    <%= link_to 'Delete', @flat, method: :delete, data: {confirm: "sure?"} %>
+    <%= link_to 'Delete', @flat, method: :delete, class:"btn btn-primary", data: {confirm: "sure?"} %>
   <% end %>
   <% if policy(Flat).create? %>
     <%= link_to "Back to All Flats", flats_path, class: "btn btn-primary"  %>

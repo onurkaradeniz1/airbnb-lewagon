@@ -7,19 +7,24 @@
       <% @flats.each do |flat| %>
         <div class="flat_row">
           <div>
-            <% if flat.pictures.key.present? %>
-              <%= cl_image_tag(flat.pictures.key, class:"my_flat_image") %>
-            <% else %>
-               <%= image_tag("unknown.jpg", class:"my_flat_image") %>
-            <% end %>
+            <div class="photo">
+              <% if flat.pictures.key.present? %>
+                <%= cl_image_tag(flat.pictures.key, class:"my_flat_image") %>
+              <% else %>
+                <%= image_tag("unknown.jpg", class:"my_flat_image") %>
+              <% end %>
+            </div>
             <p><%= flat.address %></p>
           </div>
           <div class="remove_flat_button">
-            <%= link_to "Remove the flat", flat_path(flat), method:"delete" %>
+            <%= link_to flat_path(flat), method:"delete", class:"bin" do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
           </div>
         </div>
+        <hr>
       <% end %>
     <% end %>
-
+    <%= link_to "Add a new flat", new_flat_path(@flat), class:"btn btn-primary add_new_flat" %>
   </div>
 </div>
