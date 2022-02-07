@@ -1,7 +1,9 @@
 <div class="container flat_info">
   <h1>Beautiful place to rent in <%= @flat.city %></h1>
-  <% unless @flat.photo.key.nil? %>
-    <%= cl_image_tag @flat.photo.key, crop: :fill, class:"flat_pic" %>
+  <% if @flat.pictures.key.present? %>
+    <%= cl_image_tag @flat.pictures.key, crop: :fill, class:"flat_pic" %>
+  <% else %>
+    <%= image_tag("unknown.jpg", class:"flat_pic") %>
   <% end %>
   <div class="d-flex justify-content-between">
     <div class= "flat_show_info">
