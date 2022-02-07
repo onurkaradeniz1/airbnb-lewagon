@@ -8,20 +8,27 @@
 
 puts "seeding the database"
 
-user1 = User.create()
+user1 = User.create(
+  email: "george123@gmail.com",
+  password: 123321
+)
+
+puts "created user"
 
 
 100.times do
+  number = 1
   flat = Flat.new(
     price_per_day: rand(50..300),
     address: Faker::Address.city,
     start_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
     end_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
-    capacity: rand(2..6),
+    capacity: rand(2..6)
   )
-  flat.user =
+  flat.user = user1
   flat.save
-  puts "created flat"
+  puts "created flat #{number}"
+  number += 1
 end
 
 puts "Completed!"
