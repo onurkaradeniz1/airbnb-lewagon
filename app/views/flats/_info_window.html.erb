@@ -1,12 +1,15 @@
-<div class="card" style="width: 10rem;">
-  <div class="card-header">
-    About The Flat
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+    <h5>Details</h5>
+      <div class="card" style="width: 10rem;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><span class="font-weight-bold">Price:</span> <%= flat.price_per_day %>Euros</li>
+          <li class="list-group-item"><span class="font-weight-bold">Address:</span> <%= flat.address %></li>
+          <li class="list-group-item"><span class="font-weight-bold">City:</span> <%= flat.city %></li>
+          <li class="list-group-item"><span class="font-weight-bold">Capacity:</span> <%= flat.capacity %> people</li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Price: <%= flat.price_per_day %></li>
-    <li class="list-group-item">Address: <%= flat.address %></li>
-    <li class="list-group-item">Availability: <%= flat.availability %></li>
-    <li class="list-group-item">Description: <%= flat.description %></li>
-    <li class="list-group-item">Capacity: <%= flat.capacity %></li>
-  </ul>
 </div>

@@ -1,1 +1,17 @@
-<h1>hi</h1>
+<h1>Rental details</h1>
+<div class="container">
+  <div class="rental_form">
+    <%= simple_form_for [ @flat ] do |f| %>
+      <%= f.input :description %>
+      <%= f.input :price_per_day %>
+      <%= f.input :country, :as => :string %>
+      <%= f.input :city %>
+      <%= f.input :address %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.input :capacity %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Edit flat", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
