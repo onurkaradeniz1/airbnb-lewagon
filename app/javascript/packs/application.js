@@ -59,8 +59,8 @@ document.addEventListener('turbolinks:load', () => {
 
 });
 
-const addressInput = document.getElementById('search-input');
+// const addressInput = document.getElementById('search-input');
 
-addressInput.addEventListener('keyup', () => {
-  autocomplete();
-})
+// addressInput.addEventListener('keyup', () => {
+//   autocomplete();
+// })
