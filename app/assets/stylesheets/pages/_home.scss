@@ -9,7 +9,7 @@ h1, h3 {
   border-style: solid;
   border-color: $light-gray;
   border-width: 1px;
-  border-radius: 5px;
+  border-radius: 16px;
   margin: 32px 0 32px 0;
 }
 
@@ -17,13 +17,9 @@ h1, h3 {
   width: 100%;
 }
 
-#reportrange {
-  margin-top: 12px;
-}
-
 #apartment_image {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 16px;
 }
 
 .container {
@@ -51,16 +47,4 @@ h1, h3 {
 .review_text {
   display: flex;
   align-items: center;
-}
-
-@media (min-width: 564px) and (max-width: 950px) {
-  .daterangepicker {
-    width: 278px !important;
-  }
-}
-
-@media (min-width: 950px) {
-  .daterangepicker {
-    width: auto;
-  }
 }

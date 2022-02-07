@@ -1,33 +1,38 @@
-<div class="container flat_info">
-  <h1>Beautiful place to rent in <%= @flat.city %></h1>
-  <% if @flat.pictures.key.present? %>
-    <%= cl_image_tag @flat.pictures.key, crop: :fill, class:"flat_pic" %>
-  <% else %>
-    <%= image_tag("unknown.jpg", class:"flat_pic") %>
-  <% end %>
-  <div class="d-flex justify-content-between">
-    <div class= "flat_show_info">
-      <p><strong>Address: </strong><%= @flat.address %></p>
-      <p><strong>Maximum capacity: </strong><%= @flat.capacity %></p>
-      <p><strong>Description: </strong><%= @flat.description %></p>
-      <p><strong>Price Per Day: </strong><%= @flat.price_per_day %> Euros</p>
+<div class="container">
+  <div class="flat_info">
+    <h1>Beautiful place to rent in <%= @flat.city %></h1>
+    <div class="d-flex justify-content-between">
+      <% if @flat.pictures.key.present? %>
+        <%= cl_image_tag @flat.pictures.key, crop: :fill, class:"flat_pic" %>
+      <% else %>
+        <%= image_tag("unknown.jpg", class:"flat_pic") %>
+      <% end %>
+      <%= render "layouts/calendar", flat: @flat %>
     </div>
-    <% if policy(Flat).create? %>
-      <%= link_to "Create New flat", new_flat_path, class: "btn btn-primary h-25" %>
-    <% end %>
+    <div class="d-flex justify-content-between">
+      <div class= "flat_show_info">
+        <p><strong>Address: </strong><%= @flat.address %></p>
+        <p><strong>Maximum capacity: </strong><%= @flat.capacity %></p>
+        <p><strong>Description: </strong><%= @flat.description %></p>
+        <p><strong>Price Per Day: </strong><%= @flat.price_per_day %> Euros</p>
+      </div>
+    </div>
   </div>
   <hr>
-  <div class="container">
-    <div class="flat-options">
-      <% if policy(@flat).edit? %>
-        <%= link_to 'Edit', edit_flat_path(@flat) %>
-      <% end %>
-      <% if policy(@flat).destroy? %>
-        <%= link_to 'Delete', @flat, method: :delete, data: {confirm: "sure?"} %>
-      <% end %>||
-      <% if policy(Flat).create? %>
-        <%= link_to "Back to All Flats", flats_path  %>
-      <% end %>
-    </div>
-  </div>
+  <div class="flat-options">
+  <% if policy(@flat).edit? %>
+    <%= link_to 'Edit', edit_flat_path(@flat) %>
+  <% end %>
+  <% if policy(@flat).destroy? %>
+    <%= link_to 'Delete', @flat, method: :delete, data: {confirm: "sure?"} %>
+  <% end %>
+  <% if policy(Flat).create? %>
+    <%= link_to "Back to All Flats", flats_path, class: "btn btn-primary"  %>
+  <% end %>
+</div>
+
+
+
+
+
 </div>

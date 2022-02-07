@@ -1,14 +1,21 @@
+.container {
+  margin: 0 auto;
+}
+
 .flat_info {
   margin: 0 auto;
-  width: 50%;
 }
 
 .flat_pic {
-  width: 100%;
-  border-radius: 5px;
-  margin-top: 24px;
+  width: 50%;
+  border-radius: 16px;
+  margin-top: 36px;
 }
 
 .flat_show_info {
   margin: 18px 12px 18px 12px;
+}
+
+.booking_form {
+  margin: 24px 0 24px 0;
 }
