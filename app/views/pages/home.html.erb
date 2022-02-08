@@ -22,8 +22,42 @@
           <%= flat.pictures %>
         </div>
         <div class="col-8 review_text">
-          <p><%= flat.average_rating %></p>
-          <p><%= flat.description %></p>
+          <div>
+            <div class="my-1">
+              <% if flat.average_rating[:average] == 5 %>
+                <div class="d-flex">
+                  <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i>
+                  <p>- (<%= flat.average_rating[:num] %> reviews)</p>
+                </div>
+              <% elsif flat.average_rating[:average] == 4 %>
+                <div class="d-flex">
+                  <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i>
+                  <p>- (<%= flat.average_rating[:num] %> reviews)</p>
+                </div>
+              <% elsif flat.average_rating[:average] == 3 %>
+                <div class="d-flex">
+                  <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+                  <p>- (<%= flat.average_rating[:num] %> reviews)</p>
+                </div>
+              <% elsif flat.average_rating[:average] == 2 %>
+                <div class="d-flex">
+                  <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+                  <p>- (<%= flat.average_rating[:num] %> reviews)</p>
+                </div>
+              <% elsif flat.average_rating[:average] == 1 %>
+                <div class="d-flex">
+                  <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+                  <p>- (<%= flat.average_rating[:num] %> reviews)</p>
+                </div>
+              <% else %>
+                <div class="d-flex">
+                  <i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+                  <p>- (<%= flat.average_rating[:num] %> reviews)</p>
+                </div>
+              <% end %>
+            </div>
+            <p><%= flat.description %></p>
+          </div>
         </div>
       </div>
     <% end %>

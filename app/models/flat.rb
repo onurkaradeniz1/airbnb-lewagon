@@ -18,13 +18,25 @@ class Flat < ApplicationRecord
 
   def average_rating
     if self.bookings.empty?
-      return 0
+      return {
+        average: 0,
+        num: 0
+      }
     else
       ratings = []
+      number = 0
       self.bookings.each do |booking|
-        ratings << booking.review.rating
+        if booking.review
+          number += 1
+          ratings << booking.review.rating
+        else
+          next
+        end
       end
-      return (ratings.sum) / ratings.count
+      return {
+        average: ((ratings.sum) / ratings.count),
+        num: number
+      }
     end
   end
 end

@@ -5,11 +5,37 @@
   <% end %>
   <div class="d-flex justify-content-between">
     <div class= "flat_show_info">
+      <p><strong>Average Rating: </strong>
+        <%if @flat.average_rating == 5 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i>
+          </div>
+        <% elsif @flat.average_rating == 4 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% elsif @flat.average_rating == 3 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% elsif @flat.average_rating == 2 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% elsif @flat.average_rating == 1 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% else %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% end %>
+      </p>
       <p><strong>Address: </strong><%= @flat.address %></p>
       <p><strong>Maximum capacity: </strong><%= @flat.capacity %></p>
       <p><strong>Description: </strong><%= @flat.description %></p>
       <p><strong>Price Per Day: </strong><%= @flat.price_per_day %> Euros</p>
-      <p><strong>Average Rating: </strong><%= @flat.average_rating %></p>
     </div>
     <% if policy(Flat).create? %>
       <%= link_to "Create New flat", new_flat_path, class: "btn btn-primary h-25" %>
