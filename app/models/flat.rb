@@ -21,7 +21,7 @@ class Flat < ApplicationRecord
       return 0
     else
       ratings = []
-      self.bookings do |booking|
+      self.bookings.each do |booking|
         ratings << booking.review.rating
       end
       return (ratings.sum) / ratings.count
