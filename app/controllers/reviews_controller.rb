@@ -1,19 +1,25 @@
 class ReviewsController < ApplicationController
   before_action :find_user
-  before_action :find_booking, only: [ :index, :new, :create ]
+  before_action :find_booking, only: [ :new, :create ]
   before_action :find_review, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @reviews = Review.where(@booking.user_id == @user.id)
+    reviews_all = policy_scope(Review)
+    @reviews = reviews_all.select do |review|
+      booking = Booking.find(review.booking_id)
+      booking.user_id == @user.id
+    end
   end
 
   def new
     @review = Review.new
+    authorize @review
   end
 
   def create
     @review = Review.new(review_params)
     @review.booking_id = @booking.id
+    authorize @review
     @review.save
     if @review.save
       redirect_to review_path(@review)
@@ -23,18 +29,22 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    authorize @review
   end
 
   def edit
+    authorize @review
   end
 
   def update
+    authorize @review
     @review.update(review_params)
 
     redirect_to review_path(@review)
   end
 
   def destroy
+    authorize @review
     @review.destroy
     redirect_to reviews_path
   end
@@ -50,7 +60,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:integer, :content)
+    params.require(:review).permit(:rating, :content)
   end
 
   def find_review

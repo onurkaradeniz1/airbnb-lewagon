@@ -1,10 +1,9 @@
-class BookingPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user_id: @user.id)
+      scope.all
     end
   end
-
 
   def create?
     true
@@ -13,10 +12,6 @@ class BookingPolicy < ApplicationPolicy
   def show?
     true
   end
-
-  # def edit?
-  #   user == record.user
-  # end
 
   def update?
     user_is_owner_or_admin?
@@ -29,6 +24,7 @@ class BookingPolicy < ApplicationPolicy
   private
 
   def user_is_owner_or_admin?
-    user == User.find(record.user_id) || user.admin
+    booking = Booking.find(record.booking_id)
+    user == User.find(booking.user_id) || user.admin
   end
 end
