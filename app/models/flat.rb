@@ -15,4 +15,12 @@ class Flat < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :capacity, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_country_city_address,
+    against: [ :country, :city, :address ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
 end

@@ -55,10 +55,17 @@ class FlatsController < ApplicationController
   end
 
   def search
+    if params[:query].present?
+      @flats = Flat.search_by_country_city_address(params[:query])
+    else
+      @flats = Flat.all
+    end
+    @count = @flats.count
+    @query = params[:query]
   end
 
   private
-x
+
   def flat_params
     params.require(:flat).permit(:price_per_day, :city, :country, :address, :photo, :start_date, :end_date, :description, :capacity)
   end
