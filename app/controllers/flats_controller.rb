@@ -62,6 +62,15 @@ class FlatsController < ApplicationController
     end
     @count = @flats.count
     @query = params[:query]
+
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { flat: flat }),
+        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      }
+    end
   end
 
   private

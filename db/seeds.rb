@@ -26,14 +26,16 @@ end
 
 puts "creating flats"
 
-50.times do
+80.times do
   flat = Flat.new(
     price_per_day: rand(50..300),
-    address: Faker::Address.city,
+    address: Faker::Address.street_address,
     start_date: Faker::Date.between(from: '2022-01-01', to: '2022-01-20'),
     end_date: Faker::Date.between(from: '2014-01-21', to: '2014-02-10'),
-    capacity: rand(2..6)
-    )
+    capacity: rand(2..6),
+    country: Faker::Address.country,
+    city: Faker::Address.city
+  )
   flat.user = users.sample
   flat.save
   puts "created flat with id: #{flat.id}"

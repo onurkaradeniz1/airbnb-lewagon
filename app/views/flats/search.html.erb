@@ -1,9 +1,13 @@
+<% @search_colon = @query.present? ? ":" : ""  %>
+<% @search_text =  @count > 1 || @count == 0 ? "stays" : "stay" %>
+
 <div id="map"
      style="width: 100%; height: 400px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-<h1 class="text-center"><%= @query.capitalize %>: <%= @count %> <%= @count > 1 || @count == 0 ? "stays" : "stay" %> found </h1>
+<h1 class="text-center">All Available Flats</h1>
+<h3 class="text-center"><%= @query.capitalize %> <%= @search_colon %> <%= @count %> <%=@search_text %> found </h3>
 <div class="py-5">
   <div class="container">
     <div class="row hidden-md-up">
