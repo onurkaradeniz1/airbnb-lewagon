@@ -15,6 +15,11 @@
   </div>
   <hr>
   <h3>Check out our top rated locations!</h3>
+  <% @flats.each do |flat| %>
+    <% flat.bookings.each do |booking| %>
+      <p><%= booking.review %></p>
+    <% end %>
+  <% end %>
   <div class="row top_rated_preview">
     <div class="col-4">
       <%= image_tag "1.jpg", id:"apartment_image" %>

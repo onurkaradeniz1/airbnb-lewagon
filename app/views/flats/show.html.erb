@@ -9,6 +9,7 @@
       <p><strong>Maximum capacity: </strong><%= @flat.capacity %></p>
       <p><strong>Description: </strong><%= @flat.description %></p>
       <p><strong>Price Per Day: </strong><%= @flat.price_per_day %> Euros</p>
+      <p><strong>Average Rating: </strong><%= @flat.average_rating %></p>
     </div>
     <% if policy(Flat).create? %>
       <%= link_to "Create New flat", new_flat_path, class: "btn btn-primary h-25" %>
