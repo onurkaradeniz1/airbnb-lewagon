@@ -72,5 +72,4 @@ class FlatsController < ApplicationController
   def database_search
     @markers = Flat.all
   end
-
 end

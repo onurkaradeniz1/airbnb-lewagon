@@ -15,4 +15,28 @@ class Flat < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :capacity, presence: true
+
+  def average_rating
+    if self.bookings.empty?
+      return {
+        average: 0,
+        num: 0
+      }
+    else
+      ratings = []
+      number = 0
+      self.bookings.each do |booking|
+        if booking.review
+          number += 1
+          ratings << booking.review.rating
+        else
+          next
+        end
+      end
+      return {
+        average: ((ratings.sum) / ratings.count),
+        num: number
+      }
+    end
+  end
 end

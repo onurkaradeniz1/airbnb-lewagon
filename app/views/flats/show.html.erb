@@ -5,6 +5,33 @@
   <% end %>
   <div class="d-flex justify-content-between">
     <div class= "flat_show_info">
+      <p><strong>Average Rating: </strong>
+        <%if @flat.average_rating == 5 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i>
+          </div>
+        <% elsif @flat.average_rating == 4 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% elsif @flat.average_rating == 3 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% elsif @flat.average_rating == 2 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% elsif @flat.average_rating == 1 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% else %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% end %>
+      </p>
       <p><strong>Address: </strong><%= @flat.address %></p>
       <p><strong>Maximum capacity: </strong><%= @flat.capacity %></p>
       <p><strong>Description: </strong><%= @flat.description %></p>
