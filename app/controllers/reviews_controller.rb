@@ -29,18 +29,22 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    authorize @review
   end
 
   def edit
+    authorize @review
   end
 
   def update
+    authorize @review
     @review.update(review_params)
 
     redirect_to review_path(@review)
   end
 
   def destroy
+    authorize @review
     @review.destroy
     redirect_to reviews_path
   end
@@ -56,7 +60,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:integer, :content)
+    params.require(:review).permit(:rating, :content)
   end
 
   def find_review
