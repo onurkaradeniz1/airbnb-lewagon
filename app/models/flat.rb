@@ -16,6 +16,13 @@ class Flat < ApplicationRecord
   validates :end_date, presence: true
   validates :capacity, presence: true
 
+  include PgSearch::Model
+  pg_search_scope :search_by_country_city_address,
+    against: [ :country, :city, :address ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   def average_rating
     if self.bookings.empty?
       return {

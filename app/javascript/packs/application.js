@@ -31,9 +31,6 @@ document.addEventListener('turbolinks:load', () => {
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-import { autocomplete } from "../components/search";
-
-
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -58,9 +55,3 @@ document.addEventListener('turbolinks:load', () => {
   $input.click();
 
 });
-
-// const addressInput = document.getElementById('search-input');
-
-// addressInput.addEventListener('keyup', () => {
-//   autocomplete();
-// })
