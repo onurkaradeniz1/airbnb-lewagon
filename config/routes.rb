@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :reviews, except: [ :new, :create ]
   get '/bookings', to: 'bookings#index'
 
-  get '/error', to: 'errors#index'
+  get '/error', to: 'errors#not_found'
 
-  get "*path", to: redirect("/bookings")
+  get "*path", to: redirect("/error")
 end

@@ -46,6 +46,10 @@ class ApplicationPolicy
       scope.all
     end
 
+    def not_found?
+      true
+    end
+
     private
 
     attr_reader :user, :scope
