@@ -1,9 +1,10 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
-
-
-<%= simple_form_for [ @flat, @booking ] do |f| %>
-  <%= f.input :first_day_of_booking %>
-  <%= f.input :last_day_of_booking %>
-  <%= f.submit "Book", class: "btn btn-primary" %>
-<% end %>
+<h1>New Booking</h1>
+<div class="container">
+  <%= simple_form_for [ @flat, @booking ] do |f| %>
+    <%= f.input  :first_day_of_booking, label: 'Check-in' %>
+    <%= f.input :last_day_of_booking, label: 'Check-out'  %>
+    <div class="text-center">
+      <%= f.submit "Book!", class: "btn btn-primary w-50" %>
+    </div>
+  <% end %>
+</div>

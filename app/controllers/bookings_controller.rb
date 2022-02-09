@@ -31,6 +31,7 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    authorize @booking
   end
 
   def update
@@ -48,6 +49,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    authorize @booking
     @booking.destroy
     redirect_to flats_path
   end
