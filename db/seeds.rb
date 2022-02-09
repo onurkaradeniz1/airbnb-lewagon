@@ -6,22 +6,39 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "seeding the database"
+puts "cleaning up the database"
 
+Flat.destroy_all
+User.destroy_all
 
+puts "creating users"
 
-100.times do
-  flat = Flat.new(
-    price_per_day: rand(50..300),
-    address: Faker::Address.city,
-    pictures: "hello",
-    description: Faker::Lorem.sentence,
-    capacity: rand(2..6),
-    availability:
+users = []
+
+10.times do
+  user = User.create(
+    email: Faker::Internet.email,
+    password: Faker::PhoneNumber.subscriber_number(length: 6)
   )
-  flat.user.id = 1
-  flat.save
-  puts "created flat"
+  users << user
+  puts "created user with id: #{user.id}"
 end
 
-puts "Completed!"
+puts "creating flats"
+
+80.times do
+  flat = Flat.new(
+    price_per_day: rand(50..300),
+    address: Faker::Address.street_address,
+    start_date: Faker::Date.between(from: '2022-01-01', to: '2022-01-20'),
+    end_date: Faker::Date.between(from: '2014-01-21', to: '2014-02-10'),
+    capacity: rand(2..6),
+    country: Faker::Address.country,
+    city: Faker::Address.city
+  )
+  flat.user = users.sample
+  flat.save
+  puts "created flat with id: #{flat.id}"
+end
+
+puts "Done seeding, have fun coding!"

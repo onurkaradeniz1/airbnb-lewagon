@@ -55,6 +55,27 @@ class FlatsController < ApplicationController
     authorize @flats
   end
 
+  def search
+    if params[:query].present?
+      @flats = Flat.search_by_country_city_address(params[:query])
+    else
+      @flats = Flat.all
+    end
+    @count = @flats.count
+    @query = params[:query]
+
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { flat: flat }),
+        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      }
+    end
+    authorize @flats
+    # authorize @markers
+  end
+
   private
 
   def flat_params
@@ -73,5 +94,4 @@ class FlatsController < ApplicationController
   def database_search
     @markers = Flat.all
   end
-
 end

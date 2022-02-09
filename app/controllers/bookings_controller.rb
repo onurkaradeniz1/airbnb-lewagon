@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   before_action :find_flat, only: [ :new, :create ]
 
   def index
-    @bookings = Booking.where(user_id: @user.id)
+    @bookings = policy_scope(Booking)
   end
 
   def new
@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-
+    authorize @booking
   end
 
   def create
@@ -31,6 +31,7 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    authorize @booking
   end
 
   def update
@@ -48,6 +49,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    authorize @booking
     @booking.destroy
     redirect_to flats_path
   end

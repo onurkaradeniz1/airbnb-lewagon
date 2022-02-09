@@ -48,3 +48,31 @@ h1, h3 {
   display: flex;
   align-items: center;
 }
+
+@media (min-width: 564px) and (max-width: 950px) {
+  .daterangepicker {
+    width: 278px !important;
+  }
+}
+
+@media (min-width: 950px) {
+  .daterangepicker {
+    width: auto;
+  }
+}
+
+.carousel-control-next, .carousel-control-prev {
+    filter: invert(100%);
+}
+
+.carousel-indicators {
+  filter: invert(100%);
+}
+
+.carousel-control-prev {
+  left: -5%;
+}
+
+.carousel-control-next {
+  left: 90%;
+}

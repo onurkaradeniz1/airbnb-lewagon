@@ -1,12 +1,24 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
-
-
-<h2><%= @booking.total_price %></h2>
-
-
-
-<%= link_to "Delete this booking",
-            booking_path(@booking),
-            method: :delete,
-            data: { confirm: "Are you sure?" }, class: "btn btn-warning" %>
+<% flat = Flat.find(@booking.flat_id) %>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h3>Your Stay in <%= flat.country %> </h3>
+      <div class="info">
+        <p style="font-size: 16px;"><span class="font-weight-bold">From: </span><%= flat.start_date  %></p>
+        <p style="font-size: 16px;"><span class="font-weight-bold">To: </span><%= flat.end_date  %></p>
+        <p style="font-size: 16px;"><span class="font-weight-bold">Address: </span><%= flat.address  %></p>
+        <p style="font-size: 16px;"><span class="font-weight-bold">Description: </span><%= flat.description  %></p>
+        <p style="font-size: 16px;"><span class="font-weight-bold">Capacity: </span><%= flat.capacity  %></p>
+        <p style="font-size: 16px;"><span class="font-weight-bold">City: </span><%= flat.city  %></p>
+        <p style="font-size: 16px;"><span class="font-weight-bold">Country: </span><%= flat.country  %></p>
+        <p style="font-size: 16px;"><span class="font-weight-bold">Total Price: </span><%= @booking.total_price  %> Euros.</p>
+      </div>
+    </div>
+    <div class="col-4">
+      <%= link_to "Delete this booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+        <% if policy(@booking).edit? %>
+        <%= link_to 'Edit this booking', edit_booking_path(@booking), class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
