@@ -43,23 +43,27 @@ document.addEventListener('turbolinks:load', () => {
   }
 
   let $input = $('#reportrange');
-  let calendarData = document.querySelector('#calendar-data').dataset;
-  let start = moment(calendarData.startDate, "MM DD YYYY");
-  let end = start.add(1, 'days');
+  let calendarDataDiv = document.querySelector('#calendar-data');
 
-  $input.daterangepicker({
-    startDate: start,
-    endDate: end,
-    minDate: start,
-    maxDate: moment(calendarData.endDate, "MM DD YYYY"),
-    alwaysShowCalendars: true,
-    autoUpdateInput: true,
-    au
-  }, cb);
+  if (calendarDataDiv) {
+    let calendarData = calendarDataDiv.dataset;
+    let start = moment(calendarData.startDate, "MM DD YYYY");
+    let end = start.add(1, 'days');
 
-  cb(start, end);
+    $input.daterangepicker({
+      startDate: start,
+      endDate: end,
+      minDate: start,
+      maxDate: moment(calendarData.endDate, "MM DD YYYY"),
+      alwaysShowCalendars: true,
+      autoUpdateInput: true,
+      au
+    }, cb);
 
-  $input.click();
+    cb(start, end);
+
+    $input.click();
+  }
 
 });
 
