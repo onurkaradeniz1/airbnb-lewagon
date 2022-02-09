@@ -11,7 +11,7 @@
               <h4 class="card-title">City: <%= flat.city %></h4>
               <h6 class="card-subtitle text-muted"><span class="font-weight-bold">Total Price:</span> <%= booking.total_price %> Euros</h6>
               <small class="card-text p-y-1"><span class="font-weight-bold">Description:</span> <%= flat.description %> people</small><br>
-              <%= link_to 'Check it out!', booking, class: "btn btn-info" %> <br>
+              <%= link_to 'Check it out!', booking, class: "btn btn-primary" %> <br>
               <% if policy(booking).edit? %>
                 <%= link_to 'Edit', edit_booking_path(booking) %>
               <% end %>
@@ -24,7 +24,7 @@
       <% end %>
       <div class="container">
         <% if policy(Flat).create? %>
-          <%= link_to "Back to All Flats!", flats_path, class:"btn btn-warning" %>
+          <%= link_to "Back to All Flats!", flats_path, class:"btn btn-primary" %>
         <% end %>
       </div>
     </div>

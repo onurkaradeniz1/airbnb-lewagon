@@ -15,9 +15,9 @@
       </div>
     </div>
     <div class="col-4">
-      <%= link_to "Delete this booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <%= link_to "Delete this booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
         <% if policy(@booking).edit? %>
-        <%= link_to 'Edit this booking', edit_booking_path(@booking), class: "btn btn-success" %>
+        <%= link_to 'Edit this booking', edit_booking_path(@booking), class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
