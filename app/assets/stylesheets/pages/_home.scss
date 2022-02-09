@@ -64,3 +64,19 @@ h1, h3 {
     width: auto;
   }
 }
+
+.carousel-control-next, .carousel-control-prev {
+    filter: invert(100%);
+}
+
+.carousel-indicators {
+  filter: invert(100%);
+}
+
+.carousel-control-prev {
+  left: -5%;
+}
+
+.carousel-control-next {
+  left: 90%;
+}
