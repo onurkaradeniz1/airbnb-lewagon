@@ -53,8 +53,7 @@ document.addEventListener('turbolinks:load', () => {
       minDate: start,
       maxDate: moment(calendarData.endDate, "MM DD YYYY"),
       alwaysShowCalendars: true,
-      autoUpdateInput: true,
-      au
+      autoUpdateInput: true
     }, cb);
 
     cb(start, end);
