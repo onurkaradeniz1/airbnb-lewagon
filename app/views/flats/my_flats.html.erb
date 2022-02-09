@@ -8,8 +8,8 @@
         <div class="flat_row">
           <div>
             <div class="photo">
-              <% if flat.pictures.key.present? %>
-                <%= cl_image_tag(flat.pictures.key, class:"my_flat_image") %>
+              <% if flat.photo.key.present? %>
+                <%= cl_image_tag(flat.photo.key, class:"my_flat_image") %>
               <% else %>
                 <%= image_tag("unknown.jpg", class:"my_flat_image") %>
               <% end %>

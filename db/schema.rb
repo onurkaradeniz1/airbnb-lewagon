@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_114837) do
+ActiveRecord::Schema.define(version: 2022_02_09_141315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_114837) do
   create_table "flats", force: :cascade do |t|
     t.integer "price_per_day"
     t.string "address"
-    t.string "pictures"
+    t.string "photo"
     t.date "start_date"
     t.text "description"
     t.integer "capacity"
