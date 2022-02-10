@@ -2,15 +2,17 @@
 <% @flat = Flat.find(@booking.flat_id) %>
 <h1>Your <strong class="text-muted"><%= @flat.address %></strong> review</h1>
 <div class="container">
-  <div class="review-card">
-    <div>
+  <div class="review-card d-flex row justify-content-around">
+    <div class="col-5">
       <% if @flat.photo.key.nil? %>
-        <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+        <%= image_tag "no-image.png", class:"flat_pic" %>
       <% else %>
         <%= cl_image_tag @flat.photo.key, crop: :fill, class:"flat_pic" %>
       <% end %>
-
-      <div class="my-1 star-rating">
+    </div>
+    <div class="col-5">
+      <div class="star-rating my-3">
+        <p>Rating:</p>
         <% if @review.rating == 5 %>
           <div class="d-flex">
             <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i>
@@ -37,8 +39,7 @@
           </div>
         <% end %>
       </div>
-
-      <p><%= @review.content %></p>
+      <p>Comment: <strong><%= @review.content %></strong></p>
 
       <p>From <strong><%= @booking.first_day_of_booking %></strong> to <strong><%= @booking.last_day_of_booking %></strong></p>
       <p>Total price <strong><%= @booking.total_price %>€</strong></p>

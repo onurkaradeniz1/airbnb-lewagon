@@ -7,8 +7,8 @@
       <div class="review-card col-4 shadow-sm m-2 border">
         <div>
           <% if @flat.photo.key.nil? %>
-              <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
-            <% else %>
+            <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+          <% else %>
             <%= cl_image_tag @flat.photo.key, class:"flat_pic" %>
           <% end %>
 
