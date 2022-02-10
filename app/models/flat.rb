@@ -40,10 +40,17 @@ class Flat < ApplicationRecord
           next
         end
       end
-      return {
-        average: ((ratings.sum) / ratings.count),
-        num: number
-      }
+      if ratings.empty?
+        return {
+          average: 0,
+          num: 0
+        }
+      else
+        return {
+          average: ((ratings.sum) / ratings.count),
+          num: number
+        }
+      end
     end
   end
 end
