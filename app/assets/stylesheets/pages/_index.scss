@@ -3,4 +3,24 @@
 @import "_new";
 @import "show_flat";
 @import "my_flats";
-@import "_reviews"
+@import "_reviews";
+
+.flats-photo {
+  margin-bottom: 16px;
+}
+
+.card-img-top.my_flat_image {
+  width: 100%;
+  max-width: initial;
+}
+
+
+.card-block.p-3 {
+  p {
+    font-size: 16px;
+  }
+}
+
+.card.mb-2 {
+  border-radius: 16px;
+}

@@ -35,23 +35,30 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   $('.dropdown-toggle').dropdown()
-  let start = moment().subtract(29, 'days');
-  let end = moment();
-
   function cb(start, end) {
-    //$('#reportrange span').html(start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY'));
+    $('#reportrange span').html(start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY'));
   }
 
   let $input = $('#reportrange');
+  let calendarDataDiv = document.querySelector('#calendar-data');
 
-  $input.daterangepicker({
-    startDate: start,
-    endDate: end,
-    alwaysShowCalendars: true
-  }, cb);
+  if (calendarDataDiv) {
+    let calendarData = calendarDataDiv.dataset;
+    let start = moment(calendarData.startDate, "MM DD YYYY");
+    let end = start.add(1, 'days');
 
-  cb(start, end);
+    $input.daterangepicker({
+      startDate: start,
+      endDate: end,
+      minDate: start,
+      maxDate: moment(calendarData.endDate, "MM DD YYYY"),
+      alwaysShowCalendars: true,
+      autoUpdateInput: true
+    }, cb);
 
-  $input.click();
+    cb(start, end);
+
+    $input.click();
+  }
 
 });
