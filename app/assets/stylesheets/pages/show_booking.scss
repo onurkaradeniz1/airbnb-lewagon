@@ -1,0 +1,14 @@
+.show_booking {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 16px;
+  padding: 16px;
+  width: fit-content;
+}
+
+.booking-options {
+  margin: 16px auto;
+  .btn {
+    margin-right: 16px;
+  }
+}

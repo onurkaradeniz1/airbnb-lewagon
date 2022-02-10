@@ -15,11 +15,17 @@
         <div class="col-md-4">
           <div class="card mb-2">
             <div class="card-block p-3">
-              <img class="card-img-top" src="https://picsum.photos/200/300?random=3" alt="Card image cap">
-              <h4 class="card-title"><%= flat.address %></h4>
-              <h6 class="card-subtitle text-muted"><span class="font-weight-bold">Price Per Day:</span> <%= flat.price_per_day %> Euros</h6>
+              <div class="flats-photo">
+                <% if flat.photo.key.present? %>
+                  <%= cl_image_tag flat.photo.key, crop: :fill, class:"card-img-top my_flat_image" %>
+                <% else %>
+                  <%= image_tag("unknown.jpg", class:"card-img-top my_flat_image") %>
+                <% end %>
+              </div>
+              <strong><p class="card-title"><%= flat.address %></span></strong>
+              <p class="card-subtitle text-muted"><span class="font-weight-bold">Price Per Day:</span> <%= flat.price_per_day %> Euros</p>
               <small class="card-text p-y-1"><span class="font-weight-bold">Capacity:</span> <%= flat.capacity %> people</small><br>
-              <%= link_to 'Check it out!', flat, class: "btn btn-info" %>
+              <%= link_to 'Check it out!', flat, class: "btn btn-primary" %>
             </div>
           </div>
         </div>

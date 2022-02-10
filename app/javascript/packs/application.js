@@ -52,6 +52,10 @@ document.addEventListener('turbolinks:load', () => {
       endDate: end,
       minDate: start,
       maxDate: moment(calendarData.endDate, "MM DD YYYY"),
+      locale: {
+        applyLabel: "Save",
+        cancelLabel: "Clear dates"
+      },
       alwaysShowCalendars: true,
       autoUpdateInput: true
     }, cb);

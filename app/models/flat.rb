@@ -41,7 +41,8 @@ class Flat < ApplicationRecord
         end
       end
       return {
-        average: ((ratings.sum) / ratings.count),
+        average: 0,
+       # average: ((ratings.sum) / ratings.count),
         num: number
       }
     end
