@@ -7,13 +7,11 @@
         <div class="col-md-4">
           <div class="card mb-2">
             <div class="card-block p-3">
-
-              <% if booking.flat.photo.key.present? %>
+              <% if flat.photo.key.present? %>
                 <%= cl_image_tag booking.flat.photo.key, crop: :fill, class:"flat_pic card-img-top" %>
               <% else %>
-              <%= image_tag("unknown.jpg", class:"flat_pic card-img-top") %>
+                <%= image_tag("unknown.jpg", class:"flat_pic card-img-top") %>
               <% end %>
-
               <p class="card-title">City: <%= flat.city %></p>
               <p class="card-subtitle text-muted"><span class="font-weight-bold">Total Price:</span> <%= booking.total_price %> Euros</p>
               <small class="card-text p-y-1"><span class="font-weight-bold">Description:</span> <%= flat.description %> people</small><br>
@@ -28,10 +26,13 @@
           </div>
         </div>
       <% end %>
+    </div>
+    <div class="row">
       <div class="container">
         <% if policy(Flat).create? %>
           <%= link_to "Back to All Flats!", flats_path, class:"btn btn-primary" %>
         <% end %>
+        <%= link_to 'All your reviews', reviews_path, class: "btn btn-primary" %>
       </div>
     </div>
   </div>

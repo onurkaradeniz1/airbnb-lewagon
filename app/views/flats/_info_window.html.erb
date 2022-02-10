@@ -1,15 +1,12 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-    <h5>Details</h5>
-      <div class="card" style="width: 10rem;">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><span class="font-weight-bold">Price:</span> <%= flat.price_per_day %>Euros</li>
-          <li class="list-group-item"><span class="font-weight-bold">Address:</span> <%= flat.address %></li>
-          <li class="list-group-item"><span class="font-weight-bold">City:</span> <%= flat.city %></li>
-          <li class="list-group-item"><span class="font-weight-bold">Capacity:</span> <%= flat.capacity %> people</li>
-        </ul>
-      </div>
-    </div>
+<%= link_to flat do %>
+  <% if flat.photo.key.nil? %>
+    <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+  <% else %>
+    <%= cl_image_tag flat.photo.key, crop: :fill, class:"img-fluid width: 100% height: auto" %>
+  <% end %>
+  <div class="map-card">
+    <p><span class="font-weight-bold" style="font: size 15px;"><i class="fa fa-location-arrow"></i></span>  <%= flat.address %> <strong><%= flat.city %></strong></p>
+    <p><span class="font-weight-bold" style="font-size:15px;"><i class="fa fa-user"></i></span>  <%= flat.capacity %> people</p>
+    <p>€/day <span class="font-weight-bold" style="font-size:30px; text-align:right; font-family:"><%= flat.price_per_day %></span></p>
   </div>
-</div>
+<% end %>

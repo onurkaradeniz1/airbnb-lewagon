@@ -17,7 +17,7 @@
             <p><%= flat.address %></p>
           </div>
           <div class="remove_flat_button">
-            <%= link_to flat_path(flat), method:"delete", class:"bin" do %>
+            <%= link_to flat_path(flat), method:"delete", data: { confirm: "Are you sure?" }, class:"bin" do %>
             <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %>
           </div>

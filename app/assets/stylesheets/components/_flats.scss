@@ -1,0 +1,25 @@
+
+@media only screen and (min-width: 768px) {
+  .flats-map-grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .flat-cards {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .flats-map-grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+  }
+  .flat-cards {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+  }
+}

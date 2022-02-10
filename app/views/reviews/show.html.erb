@@ -1,14 +1,21 @@
 <% @booking = Booking.find(@review.booking_id) %>
 <% @flat = Flat.find(@booking.flat_id) %>
-<h1>Your <strong class="text-muted"><%= @flat.address %></strong> review</h1>
 <div class="container">
-  <div class="review-card">
-    <div>
-      <% unless @flat.photo.key.nil? %>
-        <%= cl_image_tag @flat.photo.key, crop: :fill, class:"flat_pic" %>
+  <div class="d-flex justify-content-around align-items-center">
+    <h1>Your <strong class="text-muted"><%= @flat.address %></strong> review</h1>
+    <%= link_to "Back to your stay", booking_path(@booking), class: "btn btn-primary btn-sm" %>
+  </div>
+  <div class="review-card d-flex row justify-content-around">
+    <div class="col-5">
+      <% if @flat.photo.key.nil? %>
+        <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+      <% else %>
+        <%= cl_image_tag @flat.photo.key, crop: :fill, class:"img-fluid width: 100% height: auto" %>
       <% end %>
-
-      <div class="my-1 star-rating">
+    </div>
+    <div class="col-5">
+      <div class="star-rating my-3">
+        <p>Rating:</p>
         <% if @review.rating == 5 %>
           <div class="d-flex">
             <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i>
@@ -35,19 +42,17 @@
           </div>
         <% end %>
       </div>
-
-      <p><%= @review.content %></p>
+      <p>Comment: <strong><%= @review.content %></strong></p>
 
       <p>From <strong><%= @booking.first_day_of_booking %></strong> to <strong><%= @booking.last_day_of_booking %></strong></p>
       <p>Total price <strong><%= @booking.total_price %>€</strong></p>
 
       <div>
-        <%= link_to "Edit",
-        edit_review_path(@review), class: "btn btn-outline-warning btn-sm" %>
+        <%= link_to "Edit", edit_review_path(@review), class: "btn btn-primary btn-sm" %>
         <%= link_to "Delete",
         review_path(@review),
         method: :delete,
-        data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" %>
+        data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-sm" %>
       </div>
     </div>
   </div>

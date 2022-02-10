@@ -1,15 +1,31 @@
+.map-card {
+  padding: 1em;
+  a {
+    color: rgb(0, 0, 0);
+    font-size: 50px;
+  }
+}
+
 .mapboxgl-popup {
-  max-width: 200px;
+  width: 150px;
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+  font-size: 10px;
 }
 
 
-
-.card-block img {
-  height: 10rem;
-  object-fit: cover;
+@media only screen and (min-width: 768px) {
+  #map {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    flex-grow: 1;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #map {
+    height: 50vh;
+  }
 }
