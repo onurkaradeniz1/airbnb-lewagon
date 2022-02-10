@@ -1,29 +1,33 @@
 <% @search_colon = @query.present? ? ":" : ""  %>
 <% @search_text =  @count > 1 || @count == 0 ? "stays" : "stay" %>
-
-<div id="map"
-     style="width: 100%; height: 400px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
 <h1 class="text-center">All Available Flats</h1>
 <h3 class="text-center"><%= @query.capitalize %> <%= @search_colon %> <%= @count %> <%=@search_text %> found </h3>
-<div class="py-5">
-  <div class="container">
-    <div class="row hidden-md-up">
+<div class="d-flex px-5">
+  <div class="flat-cards col-6">
+    <div>
       <% @flats.each do |flat| %>
-        <div class="col-md-4">
-          <div class="card mb-2">
-            <div class="card-block p-3">
-              <img class="card-img-top" src="https://picsum.photos/200/300?random=3" alt="Card image cap">
-              <h4 class="card-title"><%= flat.address %></h4>
-              <h6 class="card-subtitle text-muted"><span class="font-weight-bold">Price Per Day:</span> <%= flat.price_per_day %> Euros</h6>
-              <small class="card-text p-y-1"><span class="font-weight-bold">Capacity:</span> <%= flat.capacity %> people</small><br>
-              <%= link_to 'Check it out!', flat, class: "btn btn-info" %>
+        <div class="card mb-2">
+          <div class="card-block p-3">
+            <div class="flats-photo">
+              <% if flat.photo.key.present? %>
+                <%= cl_image_tag flat.photo.key, class:"card-img-top" %>
+              <% else %>
+              <%= image_tag("unknown.jpg", class:"card-img-top my_flat_image") %>
+              <% end %>
             </div>
+            <strong><p class="card-title"><%= flat.address %></p></strong>
+            <p class="card-subtitle text-muted"><span class="font-weight-bold">Price Per Day:</span> <%= flat.price_per_day %> Euros</p>
+            <small class="card-text p-y-1"><span class="font-weight-bold">Capacity:</span> <%= flat.capacity %> people</small><br>
+            <%= link_to 'Check it out!', flat, class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>
     </div>
+  </div>
+  <div class="col-6"
+      id="map"
+      style="width: 100%; height: 100vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
