@@ -7,16 +7,22 @@
         <div class="col-md-4">
           <div class="card mb-2">
             <div class="card-block p-3">
-              <img class="card-img-top" src="https://picsum.photos/200/300?random=3" alt="Card image cap">
-              <h4 class="card-title">City: <%= flat.city %></h4>
-              <h6 class="card-subtitle text-muted"><span class="font-weight-bold">Total Price:</span> <%= booking.total_price %> Euros</h6>
+
+              <% if booking.flat.photo.key.present? %>
+                <%= cl_image_tag booking.flat.photo.key, crop: :fill, class:"flat_pic card-img-top" %>
+              <% else %>
+              <%= image_tag("unknown.jpg", class:"flat_pic card-img-top") %>
+              <% end %>
+
+              <p class="card-title">City: <%= flat.city %></p>
+              <p class="card-subtitle text-muted"><span class="font-weight-bold">Total Price:</span> <%= booking.total_price %> Euros</p>
               <small class="card-text p-y-1"><span class="font-weight-bold">Description:</span> <%= flat.description %> people</small><br>
               <%= link_to 'Check it out!', booking, class: "btn btn-primary" %> <br>
               <% if policy(booking).edit? %>
-                <%= link_to 'Edit', edit_booking_path(booking) %>
+                <%= link_to 'Edit', edit_booking_path(booking), class: "btn btn-primary" %>
               <% end %>
               <% if policy(booking).destroy? %>
-                <%= link_to 'Delete', booking, method: :delete, data: {confirm: "sure?"} %>
+                <%= link_to 'Delete', booking, method: :delete, data: {confirm: "sure?"}, class: "btn btn-primary" %>
               <% end %>
             </div>
           </div>

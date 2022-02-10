@@ -10,8 +10,8 @@
       <% end %>
     </div>
     <div class="info show_booking col-4">
-      <p style="font-size: 16px;"><span class="font-weight-bold">From: </span><%= flat.start_date  %></p>
-      <p style="font-size: 16px;"><span class="font-weight-bold">To: </span><%= flat.end_date  %></p>
+      <p style="font-size: 16px;"><span class="font-weight-bold">From: </span><%= @booking.first_day_of_booking.strftime("%e-%m-%Y")  %></p>
+      <p style="font-size: 16px;"><span class="font-weight-bold">To: </span><%= @booking.last_day_of_booking.strftime("%e-%m-%Y")  %></p>
       <p style="font-size: 16px;"><span class="font-weight-bold">Address: </span><%= flat.address  %></p>
       <p style="font-size: 16px;"><span class="font-weight-bold">Description: </span><%= flat.description  %></p>
       <p style="font-size: 16px;"><span class="font-weight-bold">Capacity: </span><%= flat.capacity  %></p>

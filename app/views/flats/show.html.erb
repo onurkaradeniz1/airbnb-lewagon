@@ -12,9 +12,15 @@
 
     <div class="book_button col-6">
       <%= simple_form_for [@flat, @booking] do |f| %>
-        <%= f.input :first_day_of_booking %>
-        <%= f.input :last_day_of_booking %>
-        <%= f.input :total_price %>
+
+        <input type="hidden" id="start_year" name="booking[first_day_of_booking(1i)]">
+        <input type="hidden" id="start_month" name="booking[first_day_of_booking(2i)]">
+        <input type="hidden" id="start_day" name="booking[first_day_of_booking(3i)]">
+
+        <input type="hidden" id="end_year" name="booking[last_day_of_booking(1i)]">
+        <input type="hidden" id="end_month" name="booking[last_day_of_booking(2i)]">
+        <input type="hidden" id="end_day" name="booking[last_day_of_booking(3i)]">
+
         <%= f.submit :Book, class:"btn btn-primary" %>
       <% end %>
     </div>
