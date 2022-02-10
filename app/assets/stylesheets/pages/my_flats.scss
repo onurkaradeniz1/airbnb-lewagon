@@ -6,20 +6,37 @@
 .my_flats_container {
   display: flex;
   flex-flow: column;
+  hr {
+    border-top: 1px solid #887048;
+    width: 80%;
+  }
+  .add_new_flat {
+    margin-top: 16px;
+  }
 }
 
 .my_flat_image {
-  max-width: 220px;
-  border-radius: 5px;
+  max-width: 260px;
+  border-radius: 16px;
 }
 
 .flat_row {
-  margin-top: 32px;
+  margin-top: 16px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: baseline;
 }
 
 .bin {
-  display: flex;
-  align-items: center;
+  margin-left: 32px;
+  font-size: 32px;
+}
+
+.add_new_flat {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.photo {
+  margin: 0 32px 16px 0;
 }
