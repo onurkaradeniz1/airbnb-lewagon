@@ -1,8 +1,15 @@
 <% flat = Flat.find(@booking.flat_id) %>
 <div class="container">
   <h1>Your Stay in <%= flat.country %></h1>
-  <div class="show_booking">
-    <div class="info">
+  <div class="row booking_container">
+    <div class="col-6">
+      <% if flat.photo.key.present? %>
+        <%= cl_image_tag flat.photo.key, crop: :fill, class:"flat_pic booking_flat_pic" %>
+      <% else %>
+        <%= image_tag("unknown.jpg", class:"flat_pic booking_flat_pic") %>
+      <% end %>
+    </div>
+    <div class="info show_booking col-4">
       <p style="font-size: 16px;"><span class="font-weight-bold">From: </span><%= flat.start_date  %></p>
       <p style="font-size: 16px;"><span class="font-weight-bold">To: </span><%= flat.end_date  %></p>
       <p style="font-size: 16px;"><span class="font-weight-bold">Address: </span><%= flat.address  %></p>

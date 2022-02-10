@@ -4,6 +4,7 @@
   border-radius: 16px;
   padding: 16px;
   width: fit-content;
+  height: 100%;
 }
 
 .booking-options {
@@ -11,4 +12,13 @@
   .btn {
     margin-right: 16px;
   }
+}
+
+.booking_flat_pic {
+  width: 100%;
+  margin-top: 0;
+}
+
+.booking_container {
+  margin-top: 38px;
 }
