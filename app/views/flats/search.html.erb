@@ -3,8 +3,8 @@
 <h1 class="text-center">All Available Flats</h1>
 <h3 class="text-center"><%= @query.capitalize %> <%= @search_colon %> <%= @count %> <%=@search_text %> found </h3>
 <div class="d-flex px-5">
-  <div class="flat-cards col-6">
-    <div>
+  <div class="col-6">
+    <div class="flat-cards">
       <% @flats.each do |flat| %>
         <div class="card mb-2">
           <div class="card-block p-3">

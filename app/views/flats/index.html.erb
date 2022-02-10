@@ -1,6 +1,11 @@
 <h1 class="text-center">All Available Flats</h1>
-<div class="px-5 d-flex">
-  <div class="flat-cards col-6">
+<div class="px-5 flats-map-grid">
+  <div id="map"
+    style="width: 100%;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <div class="flat-cards">
     <% @flats.each do |flat| %>
       <div class="card mb-2">
         <div class="card-block p-3">
@@ -18,11 +23,5 @@
         </div>
       </div>
     <% end %>
-  </div>
-  <div class="col-6"
-    id="map"
-     style="width: 100%; height: 100vh;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
