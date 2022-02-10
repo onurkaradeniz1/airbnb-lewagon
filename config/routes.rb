@@ -14,6 +14,10 @@ Rails.application.routes.draw do
       get :search
     end
 
+    member do
+      get :reviews
+    end
+
     resources :bookings, only: [ :new, :create ]
   end
 

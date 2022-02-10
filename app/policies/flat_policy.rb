@@ -38,6 +38,10 @@ class FlatPolicy < ApplicationPolicy
     true
   end
 
+  def reviews?
+    true
+  end
+
   private
 
   def user_is_owner_or_admin?

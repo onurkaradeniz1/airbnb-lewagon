@@ -53,4 +53,14 @@ class Flat < ApplicationRecord
       end
     end
   end
+
+  def reviews
+    reviews = []
+    unless self.bookings.empty?
+      self.bookings.each do |booking|
+        reviews << booking.review if booking.review
+      end
+    end
+    return reviews
+  end
 end

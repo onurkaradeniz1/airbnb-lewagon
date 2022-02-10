@@ -1,0 +1,47 @@
+<h1><span class="text-muted"><%= @flat.address %></span> Reviews (<%= @flat.reviews.count %> opinions)</h1>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <% @flat.reviews.each do |review| %>
+      <div class="review-card col-4 shadow-sm m-2 border">
+        <div>
+          <% if @flat.photo.key.nil? %>
+            <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+          <% else %>
+            <%= cl_image_tag @flat.photo.key, class:"img-fluid width: 100% height: auto" %>
+          <% end %>
+
+          <div class="my-3 star-rating">
+            <% if review.rating == 5 %>
+              <div class="d-flex">
+                <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i>
+              </div>
+            <% elsif review.rating == 4 %>
+              <div class="d-flex">
+                <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i>
+              </div>
+            <% elsif review.rating == 3 %>
+              <div class="d-flex">
+                <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+              </div>
+            <% elsif review.rating == 2 %>
+              <div class="d-flex">
+                <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+              </div>
+            <% elsif review.rating == 1 %>
+              <div class="d-flex">
+                <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+              </div>
+            <% else %>
+              <div class="d-flex">
+                <i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+              </div>
+            <% end %>
+          </div>
+
+          <p><%= review.content %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to 'Back to flat', flat_path(@flat), class: "btn btn-primary" %>
+</div>
