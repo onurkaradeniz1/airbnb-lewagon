@@ -22,7 +22,6 @@ class BookingsController < ApplicationController
     @booking.flat_id = @flat.id
     @booking.total_price = ((@booking.last_day_of_booking - @booking.first_day_of_booking).to_i) * @flat.price_per_day
     authorize @booking
-    @booking.save
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -40,10 +39,8 @@ class BookingsController < ApplicationController
     @booking.update(booking_params)
     @booking.total_price = ((@booking.last_day_of_booking - @booking.first_day_of_booking).to_i) * @flat.price_per_day
     authorize @booking
-    @booking.save
-
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to booking_path(@flat, @booking)
     else
       render :edit
     end
@@ -52,14 +49,14 @@ class BookingsController < ApplicationController
   def destroy
     authorize @booking
     @booking.destroy
-    redirect_to flats_path
+    redirect_to bookings_path
   end
 
 
   private
 
   def booking_params
-    params.require(:booking).permit(:total_price, :first_day_of_booking, :last_day_of_booking)
+    params.require(:booking).permit(:first_day_of_booking, :last_day_of_booking)
   end
 
   def find_booking
