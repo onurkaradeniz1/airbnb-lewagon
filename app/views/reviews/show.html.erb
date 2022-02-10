@@ -4,7 +4,9 @@
 <div class="container">
   <div class="review-card">
     <div>
-      <% unless @flat.photo.key.nil? %>
+      <% if @flat.photo.key.nil? %>
+        <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+      <% else %>
         <%= cl_image_tag @flat.photo.key, crop: :fill, class:"flat_pic" %>
       <% end %>
 

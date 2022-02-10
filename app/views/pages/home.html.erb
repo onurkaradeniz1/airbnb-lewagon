@@ -22,7 +22,9 @@
       <div class="carousel-item active">
         <div class="row top_rated_preview align-items-center review-card">
           <div class="col-4">
-            <% unless @top_rated[0].photo.key.nil? %>
+            <% if @top_rated[0].photo.key.nil? %>
+              <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+            <% else %>
               <%= cl_image_tag @top_rated[0].photo.key, class:"img-fluid width: 100% height: auto" %>
             <% end %>
           </div>
@@ -71,8 +73,10 @@
       <div class="carousel-item" >
         <div class="row top_rated_preview align-items-center review-card">
           <div class="col-4">
-            <% unless @top_rated[1].photo.key.nil? %>
-              <%= cl_image_tag @top_rated[1].photo.key, class:"flat_pic m-0" %>
+            <% if @top_rated[1].photo.key.nil? %>
+              <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+            <% else %>
+              <%= cl_image_tag @top_rated[1].photo.key, class:"img-fluid width: 100% height: auto" %>
             <% end %>
           </div>
           <div class="col-8 review_text">
@@ -121,8 +125,10 @@
       <div class="carousel-item" >
         <div class="row top_rated_preview align-items-center review-card">
           <div class="col-4">
-            <% unless @top_rated[2].photo.key.nil? %>
-              <%= cl_image_tag @top_rated[2].photo.key, class:"flat_pic m-0" %>
+            <% if @top_rated[2].photo.key.nil? %>
+              <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+            <% else %>
+              <%= cl_image_tag @top_rated[2].photo.key, class:"img-fluid width: 100% height: auto" %>
             <% end %>
           </div>
           <div class="col-8 review_text">
@@ -171,8 +177,10 @@
       <div class="carousel-item" >
         <div class="row top_rated_preview align-items-center review-card">
           <div class="col-4">
-            <% unless @top_rated[3].photo.key.nil? %>
-              <%= cl_image_tag @top_rated[3].photo.key, class:"flat_pic m-0" %>
+            <% if @top_rated[3].photo.key.nil? %>
+              <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+            <% else %>
+              <%= cl_image_tag @top_rated[3].photo.key, class:"img-fluid width: 100% height: auto" %>
             <% end %>
           </div>
           <div class="col-8 review_text">
@@ -221,8 +229,10 @@
       <div class="carousel-item" >
         <div class="row top_rated_preview align-items-center review-card">
           <div class="col-4">
-            <% unless @top_rated[4].photo.key.nil? %>
-              <%= cl_image_tag @top_rated[4].photo.key, class:"flat_pic m-0" %>
+            <% if @top_rated[4].photo.key.nil? %>
+              <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+            <% else %>
+              <%= cl_image_tag @top_rated[4].photo.key, class:"img-fluid width: 100% height: auto" %>
             <% end %>
           </div>
           <div class="col-8 review_text">
