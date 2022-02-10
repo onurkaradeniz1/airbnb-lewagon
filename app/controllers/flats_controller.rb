@@ -1,6 +1,6 @@
 class FlatsController < ApplicationController
   before_action :find_user, :database_search
-  before_action :find_flat, only: %i[show edit update destroy]
+  before_action :find_flat, only: %i[show edit update destroy reviews]
 
   def index
     # @flats = Flat.all
@@ -74,6 +74,12 @@ class FlatsController < ApplicationController
     end
     authorize @flats
     # authorize @markers
+  end
+
+  def reviews
+    unless @flat.reviews.empty?
+      @reviews = @flat.reviews
+    end
   end
 
   private

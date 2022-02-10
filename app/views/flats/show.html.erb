@@ -12,7 +12,7 @@
     <div class="d-flex justify-content-between">
       <div class= "flat_show_info">
         <p><strong>Average Rating: </strong>
-          <%= link_to @flat.reviews do %>
+          <%= link_to reviews_flat_path do %>
             <%if @flat.average_rating[:average] == 5 %>
               <div class="d-flex">
                 <p><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i>

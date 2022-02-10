@@ -58,7 +58,7 @@ class Flat < ApplicationRecord
     reviews = []
     unless self.bookings.empty?
       self.bookings.each do |booking|
-        ratings << booking.review if booking.review
+        reviews << booking.review if booking.review
       end
     end
     return reviews

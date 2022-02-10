@@ -10,10 +10,12 @@
   </div>
   <div class="row">
     <div class="col-4">
-      <% if flat.photo.key.nil? %>
-        <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
-      <% else %>
-        <%= cl_image_tag flat.photo.key, crop: :fill, class:"img-fluid width: 100% height: auto" %>
+      <%= link_to flat do %>
+        <% if flat.photo.key.nil? %>
+          <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+        <% else %>
+          <%= cl_image_tag flat.photo.key, crop: :fill, class:"img-fluid width: 100% height: auto" %>
+        <% end %>
       <% end %>
     </div>
     <div class="col-4">
