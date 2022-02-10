@@ -4,7 +4,9 @@
     <%= f.input  :first_day_of_booking, label: 'Check-in' %>
     <%= f.input :last_day_of_booking, label: 'Check-out'  %>
     <div class="text-center">
-      <%= f.submit "Book!", class: "btn btn-primary w-50" %>
+      <%= f.submit "Book!", class: "btn btn-primary w-50" %><br>
+      <%= link_to "Back to All Flats", flats_path, class: "btn btn-primary"  %>
+      <%= link_to "Back to your Booking", bookings_path(@booking), class: "btn btn-primary"  %>
     </div>
   <% end %>
 </div>

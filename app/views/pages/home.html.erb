@@ -1,9 +1,14 @@
 <h1>Ready to plan your next trip?</h1>
 <div class="container">
+  <div class="container-2">
+
 
   <div class="row">
-    <div class="col-6">
-      <%= image_tag "lighthouse.JPG", id:"banner_image" %>
+    <div class="col-12 overlay">
+      <%= image_tag "igloo.jpg", id:"banner_image" %>
+    </div>
+    <div class="centered">Not sure where to go? Perfect!</div>
+    <%= link_to "Check out our Flats!", flats_path, class:"btn btn-primary centered-2" %>
     </div>
 
   </div>
