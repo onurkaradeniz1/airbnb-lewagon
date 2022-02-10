@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     all_flats = Flat.all
-    sorted_flats = all_flats.sort_by{ |flat| flat.average_rating }.reverse
-    @top_rated = sorted_flats[0..4]
+    sorted_flats = all_flats.sort_by{ |flat| flat.average_rating[:average] }.reverse
+    @top_rated = sorted_flats.first(5)
   end
 end

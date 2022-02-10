@@ -1,6 +1,32 @@
-<h1>Bookings#index</h1>
-<p>This shows all the bookings for the current user</p>
-<% @bookings.each do |booking| %>
-  <%= booking.id %>
-  <%= booking.total_price %>
-<% end %>
+<h1 class="text-center">Your Bookings</h1>
+<div class="py-5">
+  <div class="container">
+    <div class="row hidden-md-up">
+      <% @bookings.each do |booking| %>
+        <% flat = Flat.find(booking.flat_id) %>
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <div class="card-block p-3">
+              <img class="card-img-top" src="https://picsum.photos/200/300?random=3" alt="Card image cap">
+              <h4 class="card-title">City: <%= flat.city %></h4>
+              <h6 class="card-subtitle text-muted"><span class="font-weight-bold">Total Price:</span> <%= booking.total_price %> Euros</h6>
+              <small class="card-text p-y-1"><span class="font-weight-bold">Description:</span> <%= flat.description %> people</small><br>
+              <%= link_to 'Check it out!', booking, class: "btn btn-primary" %> <br>
+              <% if policy(booking).edit? %>
+                <%= link_to 'Edit', edit_booking_path(booking) %>
+              <% end %>
+              <% if policy(booking).destroy? %>
+                <%= link_to 'Delete', booking, method: :delete, data: {confirm: "sure?"} %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="container">
+        <% if policy(Flat).create? %>
+          <%= link_to "Back to All Flats!", flats_path, class:"btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

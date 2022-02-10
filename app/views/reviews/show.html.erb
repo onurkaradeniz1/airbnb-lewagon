@@ -1,4 +1,56 @@
-<h1>Reviews#show</h1>
-<p>Find me in app/views/reviews/show.html.erb</p>
-<%= @review.content %>
-<%= @review.rating %>
+<% @booking = Booking.find(@review.booking_id) %>
+<% @flat = Flat.find(@booking.flat_id) %>
+<h1>Your <strong class="text-muted"><%= @flat.address %></strong> review</h1>
+<div class="container">
+  <div class="review-card">
+    <div>
+      <% if @flat.photo.key.nil? %>
+        <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+      <% else %>
+        <%= cl_image_tag @flat.photo.key, crop: :fill, class:"flat_pic" %>
+      <% end %>
+
+      <div class="my-1 star-rating">
+        <% if @review.rating == 5 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i>
+          </div>
+        <% elsif @review.rating == 4 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% elsif @review.rating == 3 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% elsif @review.rating == 2 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% elsif @review.rating == 1 %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% else %>
+          <div class="d-flex">
+            <i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i><i class="fas fa-star" style="color: grey"></i>
+          </div>
+        <% end %>
+      </div>
+
+      <p><%= @review.content %></p>
+
+      <p>From <strong><%= @booking.first_day_of_booking %></strong> to <strong><%= @booking.last_day_of_booking %></strong></p>
+      <p>Total price <strong><%= @booking.total_price %>€</strong></p>
+
+      <div>
+        <%= link_to "Edit",
+        edit_review_path(@review), class: "btn btn-outline-warning btn-sm" %>
+        <%= link_to "Delete",
+        review_path(@review),
+        method: :delete,
+        data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" %>
+      </div>
+    </div>
+  </div>
+</div>
