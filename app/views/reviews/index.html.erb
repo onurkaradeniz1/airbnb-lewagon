@@ -7,12 +7,12 @@
       <div class="review-card col-4 shadow-sm m-2 border">
         <div>
           <% if @flat.photo.key.nil? %>
-              <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
-            <% else %>
-            <%= cl_image_tag @flat.photo.key, class:"flat_pic" %>
+            <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+          <% else %>
+            <%= cl_image_tag @flat.photo.key, class:"img-fluid width: 100% height: auto" %>
           <% end %>
 
-          <div class="my-1 star-rating">
+          <div class="my-3 star-rating">
             <% if review.rating == 5 %>
               <div class="d-flex">
                 <i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i><i class="fas fa-star" style="color: gold"></i>
@@ -46,15 +46,16 @@
           <p>Total price <strong><%= @booking.total_price %>€</strong></p>
 
           <div>
-            <%= link_to "Edit",
-            edit_review_path(review), class: "btn btn-outline-warning btn-sm" %>
+            <%= link_to "View", review_path(review), class: "text-success" %>
+            <%= link_to "Edit", edit_review_path(review), class: "text-warning" %>
             <%= link_to "Delete",
             review_path(review),
             method: :delete,
-            data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" %>
+            data: { confirm: "Are you sure?" }, class: "text-danger" %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+  <%= link_to 'Bookings', bookings_path, class: "btn btn-primary btn-sm" %>
 </div>

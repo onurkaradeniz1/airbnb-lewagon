@@ -1,6 +1,13 @@
 <% flat = Flat.find(@booking.flat_id) %>
 <div class="container">
-  <h3>Your Stay in <%= flat.country %> </h3>
+  <div class="row d-flex align-items-center">
+    <div class="col-8">
+      <h3>Your Stay in <%= flat.country %> </h3>
+    </div>
+    <div class="col-4 d-flex justify-content-end">
+      <%= link_to 'Back to your bookings', bookings_path, class: "btn btn-primary btn-sm" %>
+    </div>
+  </div>
   <div class="row">
     <div class="col-8">
       <div class="info">
@@ -14,7 +21,7 @@
         <p style="font-size: 16px;"><span class="font-weight-bold">Total Price: </span><%= @booking.total_price  %> Euros.</p>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-4 d-flex justify-content-end">
       <% if @booking.review %>
         <div class="card mb-2">
           <div class="card-block p-3">
@@ -57,13 +64,13 @@
           </div>
         </div>
       <% else %>
-        <%= link_to 'Add a review', new_booking_review_path(@booking), class: "btn btn-primary" %>
+        <%= link_to 'Add a review', new_booking_review_path(@booking) %>
       <% end %>
     </div>
   </div>
   <div class="row">
     <% if policy(@booking).edit? %>
-      <%= link_to 'Edit this booking', edit_booking_path(@booking), class: "btn btn-outline-success mx-2" %>
+      <%= link_to 'Edit this booking', edit_booking_path(@booking), class: "btn btn-outline-warning mx-2" %>
     <% end %>
     <%= link_to "Delete this booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger mx-2" %>
   </div>

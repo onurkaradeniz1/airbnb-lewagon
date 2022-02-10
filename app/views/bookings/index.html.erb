@@ -7,7 +7,11 @@
         <div class="col-md-4">
           <div class="card mb-2">
             <div class="card-block p-3">
-              <img class="card-img-top" src="https://picsum.photos/200/300?random=3" alt="Card image cap">
+              <% if flat.photo.key.nil? %>
+                <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+              <% else %>
+                <%= cl_image_tag flat.photo.key, crop: :fill, class:"img-fluid width: 100% height: auto" %>
+              <% end %>
               <h4 class="card-title">City: <%= flat.city %></h4>
               <h6 class="card-subtitle text-muted"><span class="font-weight-bold">Total Price:</span> <%= booking.total_price %> Euros</h6>
               <small class="card-text p-y-1"><span class="font-weight-bold">Description:</span> <%= flat.description %> people</small><br>
@@ -22,10 +26,13 @@
           </div>
         </div>
       <% end %>
+    </div>
+    <div class="row">
       <div class="container">
         <% if policy(Flat).create? %>
           <%= link_to "Back to All Flats!", flats_path, class:"btn btn-primary" %>
         <% end %>
+        <%= link_to 'All your reviews', reviews_path, class: "btn btn-primary" %>
       </div>
     </div>
   </div>
