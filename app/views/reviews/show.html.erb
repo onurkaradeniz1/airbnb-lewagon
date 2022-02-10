@@ -1,7 +1,10 @@
 <% @booking = Booking.find(@review.booking_id) %>
 <% @flat = Flat.find(@booking.flat_id) %>
-<h1>Your <strong class="text-muted"><%= @flat.address %></strong> review</h1>
 <div class="container">
+  <div class="d-flex justify-content-around align-items-center">
+    <h1>Your <strong class="text-muted"><%= @flat.address %></strong> review</h1>
+    <%= link_to "Back to your stay", booking_path(@booking), class: "btn btn-primary btn-sm" %>
+  </div>
   <div class="review-card d-flex row justify-content-around">
     <div class="col-5">
       <% if @flat.photo.key.nil? %>
@@ -45,12 +48,11 @@
       <p>Total price <strong><%= @booking.total_price %>€</strong></p>
 
       <div>
-        <%= link_to "Edit",
-        edit_review_path(@review), class: "btn btn-outline-warning btn-sm" %>
+        <%= link_to "Edit", edit_review_path(@review), class: "btn btn-primary btn-sm" %>
         <%= link_to "Delete",
         review_path(@review),
         method: :delete,
-        data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" %>
+        data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-sm" %>
       </div>
     </div>
   </div>
