@@ -82,8 +82,12 @@ class FlatsController < ApplicationController
   end
 
   def find_flat
-    @flat = Flat.find(params[:id])
-    authorize @flat
+    if Flat.find_by(id: params[:id]).nil?
+      redirect_to error_path
+    else
+      @flat = Flat.find(params[:id])
+      authorize @flat
+    end
   end
 
   def find_user
