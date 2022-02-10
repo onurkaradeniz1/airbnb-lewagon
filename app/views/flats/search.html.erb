@@ -2,32 +2,29 @@
 <% @search_text =  @count > 1 || @count == 0 ? "stays" : "stay" %>
 <h1 class="text-center">All Available Flats</h1>
 <h3 class="text-center"><%= @query.capitalize %> <%= @search_colon %> <%= @count %> <%=@search_text %> found </h3>
-<div class="d-flex px-5">
-  <div class="col-6">
-    <div class="flat-cards">
-      <% @flats.each do |flat| %>
-        <div class="card mb-2">
-          <div class="card-block p-3">
-            <div class="flats-photo">
-              <% if flat.photo.key.present? %>
-                <%= cl_image_tag flat.photo.key, class:"card-img-top" %>
-              <% else %>
-              <%= image_tag("unknown.jpg", class:"card-img-top my_flat_image") %>
-              <% end %>
-            </div>
-            <strong><p class="card-title"><%= flat.address %></p></strong>
-            <p class="card-subtitle text-muted"><span class="font-weight-bold">Price Per Day:</span> <%= flat.price_per_day %> Euros</p>
-            <small class="card-text p-y-1"><span class="font-weight-bold">Capacity:</span> <%= flat.capacity %> people</small><br>
-            <%= link_to 'Check it out!', flat, class: "btn btn-primary" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+<div class="px-5 flats-map-grid">
+  <div id="map"
+    style="width: 100%;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <div class="col-6"
-      id="map"
-      style="width: 100%; height: 100vh;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="flat-cards">
+    <% @flats.each do |flat| %>
+      <div class="card mb-2">
+        <div class="card-block p-3">
+          <div class="flats-photo">
+            <% if flat.photo.key.present? %>
+              <%= cl_image_tag flat.photo.key, class:"card-img-top" %>
+            <% else %>
+            <%= image_tag("unknown.jpg", class:"card-img-top my_flat_image") %>
+            <% end %>
+          </div>
+          <strong><p class="card-title"><%= flat.address %></p></strong>
+          <p class="card-subtitle text-muted"><span class="font-weight-bold">Price Per Day:</span> <%= flat.price_per_day %> Euros</p>
+          <small class="card-text p-y-1"><span class="font-weight-bold">Capacity:</span> <%= flat.capacity %> people</small><br>
+          <%= link_to 'Check it out!', flat, class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
