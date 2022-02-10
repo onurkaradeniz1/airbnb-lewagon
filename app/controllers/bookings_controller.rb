@@ -39,6 +39,7 @@ class BookingsController < ApplicationController
     @flat = Flat.find(new_id)
     @booking.update(booking_params)
     @booking.total_price = ((@booking.last_day_of_booking - @booking.first_day_of_booking).to_i) * @flat.price_per_day
+    authorize @booking
     @booking.save
 
     if @booking.save
