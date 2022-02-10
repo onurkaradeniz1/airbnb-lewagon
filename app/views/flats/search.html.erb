@@ -14,7 +14,7 @@
         <div class="card-block p-3">
           <div class="flats-photo">
             <% if flat.photo.key.present? %>
-              <%= cl_image_tag flat.photo.key, class:"card-img-top" %>
+              <%= cl_image_tag flat.photo.key, class:"card-img-top my_flat_image" %>
             <% else %>
             <%= image_tag("unknown.jpg", class:"card-img-top my_flat_image") %>
             <% end %>
@@ -28,5 +28,4 @@
     <% end %>
   </div>
 </div>
-
 <h1><%= link_to "Go back to home page", root_path, class: "btn btn-primary" %></h1>

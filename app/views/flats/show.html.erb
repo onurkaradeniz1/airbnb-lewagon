@@ -9,7 +9,23 @@
       <% end %>
       <%= render "layouts/calendar", flat: @flat %>
     </div>
-    <div class="d-flex justify-content-between">
+
+    <div class="book_button col-6">
+      <%= simple_form_for [@flat, @booking] do |f| %>
+
+        <input type="hidden" id="start_year" name="booking[first_day_of_booking(1i)]">
+        <input type="hidden" id="start_month" name="booking[first_day_of_booking(2i)]">
+        <input type="hidden" id="start_day" name="booking[first_day_of_booking(3i)]">
+
+        <input type="hidden" id="end_year" name="booking[last_day_of_booking(1i)]">
+        <input type="hidden" id="end_month" name="booking[last_day_of_booking(2i)]">
+        <input type="hidden" id="end_day" name="booking[last_day_of_booking(3i)]">
+
+        <%= f.submit :Book, class:"btn btn-primary" %>
+      <% end %>
+    </div>
+
+    <div class="flat-data d-flex justify-content-between">
       <div class= "flat_show_info">
         <p><strong>Average Rating: </strong>
           <%if @flat.average_rating[:average] == 5 %>

@@ -36,6 +36,14 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   $('.dropdown-toggle').dropdown()
   function cb(start, end) {
+    document.getElementById("start_day").value = start.date();
+    document.getElementById("start_month").value = start.month() + 1;
+    document.getElementById("start_year").value = start.year();
+
+    document.getElementById("end_day").value = end.date();
+    document.getElementById("end_month").value = end.month() + 1;
+    document.getElementById("end_year").value = end.year();
+
     $('#reportrange span').html(start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY'));
   }
 
@@ -52,6 +60,10 @@ document.addEventListener('turbolinks:load', () => {
       endDate: end,
       minDate: start,
       maxDate: moment(calendarData.endDate, "MM DD YYYY"),
+      locale: {
+        applyLabel: "Save",
+        cancelLabel: "Clear dates"
+      },
       alwaysShowCalendars: true,
       autoUpdateInput: true
     }, cb);

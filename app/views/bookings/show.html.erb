@@ -1,36 +1,25 @@
 <% flat = Flat.find(@booking.flat_id) %>
 <div class="container">
-  <div class="row d-flex align-items-center">
-    <div class="col-8">
-      <h3>Your Stay in <%= flat.country %> </h3>
-    </div>
-    <div class="col-4 d-flex justify-content-end">
-      <%= link_to 'Back to your bookings', bookings_path, class: "btn btn-primary btn-sm" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-4">
-      <% if flat.photo.key.nil? %>
-        <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+  <h1>Your Stay in <%= flat.country %></h1>
+  <div class="row booking_container">
+    <div class="col-6">
+      <% if flat.photo.key.present? %>
+        <%= cl_image_tag flat.photo.key, crop: :fill, class:"flat_pic booking_flat_pic" %>
       <% else %>
-        <%= cl_image_tag flat.photo.key, crop: :fill, class:"img-fluid width: 100% height: auto" %>
+        <%= image_tag("unknown.jpg", class:"flat_pic booking_flat_pic") %>
       <% end %>
     </div>
-    <div class="col-4">
-      <div class="info">
-        <p style="font-size: 16px;"><span class="font-weight-bold">From: </span><%= flat.start_date  %></p>
-        <p style="font-size: 16px;"><span class="font-weight-bold">To: </span><%= flat.end_date  %></p>
-        <p style="font-size: 16px;"><span class="font-weight-bold">Address: </span><%= flat.address  %></p>
-        <p style="font-size: 16px;"><span class="font-weight-bold">Description: </span><%= flat.description  %></p>
-        <p style="font-size: 16px;"><span class="font-weight-bold">Capacity: </span><%= flat.capacity  %></p>
-        <p style="font-size: 16px;"><span class="font-weight-bold">City: </span><%= flat.city  %></p>
-        <p style="font-size: 16px;"><span class="font-weight-bold">Country: </span><%= flat.country  %></p>
-        <p style="font-size: 16px;"><span class="font-weight-bold">Total Price: </span><%= @booking.total_price  %> Euros.</p>
-      </div>
-
-
+    <div class="info show_booking col-4">
+      <p style="font-size: 16px;"><span class="font-weight-bold">From: </span><%= @booking.first_day_of_booking.strftime("%e-%m-%Y")  %></p>
+      <p style="font-size: 16px;"><span class="font-weight-bold">To: </span><%= @booking.last_day_of_booking.strftime("%e-%m-%Y")  %></p>
+      <p style="font-size: 16px;"><span class="font-weight-bold">Address: </span><%= flat.address  %></p>
+      <p style="font-size: 16px;"><span class="font-weight-bold">Description: </span><%= flat.description  %></p>
+      <p style="font-size: 16px;"><span class="font-weight-bold">Capacity: </span><%= flat.capacity  %></p>
+      <p style="font-size: 16px;"><span class="font-weight-bold">City: </span><%= flat.city  %></p>
+      <p style="font-size: 16px;"><span class="font-weight-bold">Country: </span><%= flat.country  %></p>
+      <p style="font-size: 16px;"><span class="font-weight-bold">Total Price: </span><%= @booking.total_price  %> Euros.</p>
     </div>
-    <div class="col-4 d-flex justify-content-end">
+    <div class="col-4 d-flex justify-content-start">
       <div>
         <% if @booking.review %>
         <h3>Your opinion</h3>
@@ -69,16 +58,18 @@
             </div>
           </div>
         <% else %>
-          <%= link_to 'Add a review', new_booking_review_path(@booking), class: "btn btn-primary btn-sm" %>
+          <%= link_to 'Add a review', new_booking_review_path(@booking), class: "btn btn-primary mx-2" %>
         <% end %>
       </div>
-
     </div>
   </div>
-  <div class="row">
-    <% if policy(@booking).edit? %>
+  <div class="booking-options">
+    <%= link_to "Delete this booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary mx-2" %>
+      <% if policy(@booking).edit? %>
       <%= link_to 'Edit this booking', edit_booking_path(@booking), class: "btn btn-primary mx-2" %>
     <% end %>
-    <%= link_to "Delete this booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary mx-2" %>
+    <% if policy(@booking).destroy? %>
+      <%= link_to 'Back to your bookings', bookings_path, class: "btn btn-primary mx-2" %>
+    <% end %>
   </div>
 </div>
