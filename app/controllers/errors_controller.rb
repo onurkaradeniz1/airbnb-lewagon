@@ -1,7 +1,7 @@
 class ErrorsController < ApplicationController
 
   def not_found
-    render :layout => false
+    render layout: false
   end
 
 end
