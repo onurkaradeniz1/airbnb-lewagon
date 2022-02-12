@@ -78,10 +78,10 @@
       <div class="carousel-item" >
         <div class="row top_rated_preview align-items-center review-card">
           <div class="col-4">
-            <% if @top_rated[1].photo.key.nil? %>
-              <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
-            <% else %>
+            <% if @top_rated[1].photo.key.present? %>
               <%= cl_image_tag @top_rated[1].photo.key, class:"img-fluid width: 100% height: auto" %>
+            <% else %>
+              <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
             <% end %>
           </div>
           <div class="col-8 review_text">
