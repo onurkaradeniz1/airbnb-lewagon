@@ -40,3 +40,10 @@
 .photo {
   margin: 0 32px 16px 0;
 }
+
+.remove_flat_button_disabled {
+  margin-left: 32px;
+  font-size: 32px;
+  cursor: not-allowed;
+  color: $bright-gray;
+}

@@ -16,11 +16,18 @@
             </div>
             <p><%= flat.address %></p>
           </div>
+
+          <% unless flat.bookings.any? %>
           <div class="remove_flat_button">
             <%= link_to flat_path(flat), method:"delete", data: { confirm: "Are you sure?" }, class:"bin" do %>
             <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %>
           </div>
+          <% else %>
+          <div class="remove_flat_button_disabled">
+            <i class="fa fa-trash" aria-hidden="true" title="This flat has ongoing booking"></i>
+          </div>
+          <% end %>
         </div>
         <hr>
       <% end %>
