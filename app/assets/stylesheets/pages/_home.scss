@@ -102,14 +102,3 @@ h1, h3 {
   box-shadow: 10px 5px 5px #1c040a;
   opacity: 0.9;
 }
-@media screen and (max-width: 1000px) {
-  .centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
-  }
-
-
-}
