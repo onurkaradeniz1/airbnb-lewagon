@@ -10,13 +10,14 @@
   </div>
   <div class="flat-cards">
     <% @flats.each do |flat| %>
+    <div>
       <div class="card mb-2">
         <div class="card-block p-3">
           <div class="flats-photo">
             <% if flat.photo.key.present? %>
-              <%= cl_image_tag flat.photo.key, class:"card-img-top my_flat_image" %>
+              <%= cl_image_tag flat.photo.key, class:"card-img-top search-image " %>
             <% else %>
-            <%= image_tag("unknown.jpg", class:"card-img-top my_flat_image") %>
+            <%= image_tag("unknown.jpg", class:"card-img-top search-image") %>
             <% end %>
           </div>
           <strong><p class="card-title"><%= flat.address %></p></strong>
@@ -25,6 +26,7 @@
           <%= link_to 'Check it out!', flat, class: "btn btn-primary" %>
         </div>
       </div>
+    </div>
     <% end %>
   </div>
 </div>
