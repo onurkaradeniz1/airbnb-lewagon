@@ -10,7 +10,7 @@
       <%= f.input :start_date %>
       <%= f.input :end_date %>
       <%= f.input :capacity %>
-      <%= f.input :photo, as: :file %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true} %>
       <%= f.submit "Add flat", class: "btn btn-primary" %>
     <% end %>
   </div>
