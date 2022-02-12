@@ -3,7 +3,7 @@
     <h1>Beautiful place to rent in <%= @flat.city %></h1>
     <div class="d-flex justify-content-between">
       <% if @flat.photo.key.present? %>
-        <%= cl_image_tag @flat.photo.key, crop: :fill, class:"flat_pic" %>
+        <%= cl_image_tag(@flat.photo.key, crop: :fill, class:"flat_pic") %>
       <% else %>
         <%= image_tag("unknown.jpg", class:"flat_pic") %>
       <% end %>
