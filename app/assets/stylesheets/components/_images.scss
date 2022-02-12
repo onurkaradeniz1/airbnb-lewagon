@@ -1,0 +1,49 @@
+
+// working
+.index-image {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+}
+
+// working
+.search-image {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+}
+
+// working
+.root-image {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.review-image {
+  width: 200px;
+  height: 200px;
+}
+
+.my-flat-image {
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+
+}
+
+
+
+// not working
+.show-image {
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+}
+
+
+// not working
+.review-image {
+  width: 200px;
+  height: 200px;
+}

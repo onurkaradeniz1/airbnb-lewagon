@@ -6,32 +6,46 @@
     <% unless current_user.flats.nil? %>
       <% @flats.each do |flat| %>
         <div class="flat_row">
-          <div>
-            <div class="photo">
-              <% if flat.photo.key.present? %>
-                <%= cl_image_tag(flat.photo.key, class:"my_flat_image") %>
-              <% else %>
-                <%= image_tag("unknown.jpg", class:"my_flat_image") %>
-              <% end %>
-            </div>
+          <div class="photo">
+            <% if flat.photo.key.present? %>
+              <%= cl_image_tag(flat.photo.key, class:"my-flat-image") %>
+            <% else %>
+              <%= image_tag("unknown.jpg", class:"my-flat-image") %>
+            <% end %>
             <p><%= flat.address %></p>
           </div>
 
-          <% unless flat.bookings.any? %>
+          <div class="d-flex align-items-center">
+            <% if policy(flat).edit? %>
+              <%= link_to 'Edit', edit_flat_path(flat), class:"btn btn-primary" %>
+            <% end %>
+                      <% unless flat.bookings.any? %>
           <div class="remove_flat_button">
+
             <%= link_to flat_path(flat), method:"delete", data: { confirm: "Are you sure?" }, class:"bin" do %>
             <i class="fa fa-trash" aria-hidden="true"></i>
+
             <% end %>
           </div>
+          </div>
+
+
           <% else %>
           <div class="remove_flat_button_disabled">
             <i class="fa fa-trash" aria-hidden="true" title="This flat has ongoing booking"></i>
           </div>
           <% end %>
+          </div>
+        </div>
+
+
+
         </div>
         <hr>
       <% end %>
     <% end %>
+    <div class="d-flex align-items-center">
     <%= link_to "Add a new flat", new_flat_path(@flat), class:"btn btn-primary add_new_flat" %>
+    </div>
   </div>
 </div>

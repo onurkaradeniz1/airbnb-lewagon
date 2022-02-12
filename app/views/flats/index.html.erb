@@ -11,9 +11,9 @@
         <div class="card-block p-3">
           <div class="flats-photo">
             <% if flat.photo.key.present? %>
-              <%= cl_image_tag flat.photo.key, class:"card-img-top" %>
+              <%= cl_image_tag flat.photo.key, class:"card-img-top index-image" %>
             <% else %>
-            <%= image_tag("unknown.jpg", class:"card-img-top my_flat_image") %>
+            <%= image_tag("unknown.jpg", class:"card-img-top my_flat_image index-image") %>
             <% end %>
           </div>
           <strong><p class="card-title"><%= flat.address %></p></strong>

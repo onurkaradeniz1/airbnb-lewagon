@@ -8,9 +8,9 @@
   <div class="review-card d-flex row justify-content-around">
     <div class="col-5">
       <% if @flat.photo.key.nil? %>
-        <%= image_tag "no-image.png", class:"img-fluid width: 100% height: auto" %>
+        <%= image_tag "no-image.png", class:"review-image" %>
       <% else %>
-        <%= cl_image_tag @flat.photo.key, crop: :fill, class:"img-fluid width: 100% height: auto" %>
+        <%= cl_image_tag @flat.photo.key, class:"review-image" %>
       <% end %>
     </div>
     <div class="col-5">
