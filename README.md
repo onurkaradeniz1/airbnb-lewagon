@@ -1,1 +1,2 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Rails app created by 4 full-stack developers graduates of the web development course at Le Wagon
+url of the project: https://airbnb-lewagon.herokuapp.com
